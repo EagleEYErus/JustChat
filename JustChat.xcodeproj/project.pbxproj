@@ -56,15 +56,71 @@
 		11620FE82427D129008D55F0 /* JustChat */ = {
 			isa = PBXGroup;
 			children = (
-				11620FE92427D129008D55F0 /* AppDelegate.swift */,
-				11620FEB2427D129008D55F0 /* SceneDelegate.swift */,
-				11620FED2427D129008D55F0 /* ViewController.swift */,
-				11620FEF2427D129008D55F0 /* Main.storyboard */,
-				11620FF22427D12B008D55F0 /* Assets.xcassets */,
-				11620FF42427D12B008D55F0 /* LaunchScreen.storyboard */,
-				11620FF72427D12B008D55F0 /* Info.plist */,
+				11620FFE2427D4BB008D55F0 /* App */,
+				11620FFF2427D4E4008D55F0 /* Model */,
+				116210002427D4F9008D55F0 /* View */,
+				116210012427D4FE008D55F0 /* ViewModel */,
+				116210022427D508008D55F0 /* Controller */,
+				116210042427D527008D55F0 /* Interface */,
+				116210052427D547008D55F0 /* Extensions */,
 			);
 			path = JustChat;
+			sourceTree = "<group>";
+		};
+		11620FFE2427D4BB008D55F0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				11620FE92427D129008D55F0 /* AppDelegate.swift */,
+				11620FEB2427D129008D55F0 /* SceneDelegate.swift */,
+				11620FF22427D12B008D55F0 /* Assets.xcassets */,
+				11620FF72427D12B008D55F0 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		11620FFF2427D4E4008D55F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		116210002427D4F9008D55F0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		116210012427D4FE008D55F0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		116210022427D508008D55F0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				11620FED2427D129008D55F0 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		116210042427D527008D55F0 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				11620FEF2427D129008D55F0 /* Main.storyboard */,
+				11620FF42427D12B008D55F0 /* LaunchScreen.storyboard */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		116210052427D547008D55F0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,7 +364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9D48U5K9T2;
-				INFOPLIST_FILE = JustChat/Info.plist;
+				INFOPLIST_FILE = JustChat/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -327,7 +383,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9D48U5K9T2;
-				INFOPLIST_FILE = JustChat/Info.plist;
+				INFOPLIST_FILE = JustChat/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
