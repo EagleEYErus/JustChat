@@ -19,7 +19,9 @@
 		116210112428133C008D55F0 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116210102428133C008D55F0 /* Extension+String.swift */; };
 		11621013242814FC008D55F0 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11621012242814FC008D55F0 /* Extension+UIButton.swift */; };
 		11621015242817D0008D55F0 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11621014242817D0008D55F0 /* Extension+UIViewController.swift */; };
-		1176375E24290F2C006A66A1 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176375D24290F2C006A66A1 /* UsersTableViewController.swift */; };
+		1176375E24290F2C006A66A1 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176375D24290F2C006A66A1 /* ContactsTableViewController.swift */; };
+		1176376224292620006A66A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176376124292620006A66A1 /* User.swift */; };
+		1176376424292C7F006A66A1 /* ContactsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176376324292C7F006A66A1 /* ContactsListViewModel.swift */; };
 		11F3DA0B24281F2800A062A5 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */; };
 		11F3DA0D242820E500A062A5 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3DA0C242820E500A062A5 /* SignInViewModel.swift */; };
 		5DF7B893F67CF7357FC0199C /* Pods_JustChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865C5D5EDFE33C543E87B6E8 /* Pods_JustChat.framework */; };
@@ -40,7 +42,9 @@
 		116210102428133C008D55F0 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		11621012242814FC008D55F0 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		11621014242817D0008D55F0 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
-		1176375D24290F2C006A66A1 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		1176375D24290F2C006A66A1 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		1176376124292620006A66A1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1176376324292C7F006A66A1 /* ContactsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewModel.swift; sourceTree = "<group>"; };
 		11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		11F3DA0C242820E500A062A5 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		6BCB1EE7E419D02B8325CF6C /* Pods-JustChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustChat.release.xcconfig"; path = "Target Support Files/Pods-JustChat/Pods-JustChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 		11620FFF2427D4E4008D55F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1176376124292620006A66A1 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 			children = (
 				11F3DA0C242820E500A062A5 /* SignInViewModel.swift */,
 				11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */,
+				1176376324292C7F006A66A1 /* ContactsListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -138,7 +144,7 @@
 		116210022427D508008D55F0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1176375D24290F2C006A66A1 /* UsersTableViewController.swift */,
+				1176375D24290F2C006A66A1 /* ContactsTableViewController.swift */,
 				1162100A2427ED88008D55F0 /* SignInViewController.swift */,
 				1162100E242806AF008D55F0 /* SignUpViewController.swift */,
 			);
@@ -311,15 +317,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				11621015242817D0008D55F0 /* Extension+UIViewController.swift in Sources */,
+				1176376424292C7F006A66A1 /* ContactsListViewModel.swift in Sources */,
 				1162100B2427ED88008D55F0 /* SignInViewController.swift in Sources */,
 				116210112428133C008D55F0 /* Extension+String.swift in Sources */,
 				11F3DA0D242820E500A062A5 /* SignInViewModel.swift in Sources */,
-				1176375E24290F2C006A66A1 /* UsersTableViewController.swift in Sources */,
+				1176375E24290F2C006A66A1 /* ContactsTableViewController.swift in Sources */,
 				11F3DA0B24281F2800A062A5 /* SignUpViewModel.swift in Sources */,
 				11621013242814FC008D55F0 /* Extension+UIButton.swift in Sources */,
 				11620FEA2427D129008D55F0 /* AppDelegate.swift in Sources */,
 				11620FEC2427D129008D55F0 /* SceneDelegate.swift in Sources */,
 				1162100F242806AF008D55F0 /* SignUpViewController.swift in Sources */,
+				1176376224292620006A66A1 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -409,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

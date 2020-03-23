@@ -12,9 +12,6 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="qdN-WX-4T8" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="wrG-ln-1io">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="QAH-D7-9p4"/>
-                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yZj-XW-uzt">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -22,16 +19,17 @@
                     </tabBar>
                     <connections>
                         <segue destination="OgR-x0-2vj" kind="relationship" relationship="viewControllers" id="h1H-Ou-fJu"/>
+                        <segue destination="tne-p8-qrr" kind="relationship" relationship="viewControllers" id="4Q4-ZO-Mup"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2sX-To-omI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="943" y="82"/>
+            <point key="canvasLocation" x="693" y="441"/>
         </scene>
-        <!--Пользователи-->
+        <!--Контакты-->
         <scene sceneID="NX5-jS-nJZ">
             <objects>
-                <tableViewController id="lwk-Xx-0yL" customClass="UsersTableViewController" customModule="JustChat" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="lwk-Xx-0yL" customClass="ContactsTableViewController" customModule="JustChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dzv-f0-k9c">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,6 +42,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" name="backgroundView"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -51,7 +50,7 @@
                             <outlet property="delegate" destination="lwk-Xx-0yL" id="eXH-DW-zN5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Пользователи" id="qVn-ZQ-hQ3">
+                    <navigationItem key="navigationItem" title="Контакты" id="qVn-ZQ-hQ3">
                         <barButtonItem key="rightBarButtonItem" title="Выйти" id="mtt-2O-OQJ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -64,11 +63,11 @@
             </objects>
             <point key="canvasLocation" x="2474" y="82"/>
         </scene>
-        <!--Item-->
+        <!--Контакты-->
         <scene sceneID="Bab-18-D19">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OgR-x0-2vj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Osy-5f-x2u"/>
+                    <tabBarItem key="tabBarItem" title="Контакты" image="person.crop.circle" catalog="system" id="Osy-5f-x2u"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="k6g-0J-WPx">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -87,8 +86,63 @@
             </objects>
             <point key="canvasLocation" x="1699" y="82"/>
         </scene>
+        <!--Чаты-->
+        <scene sceneID="B8u-BW-rHq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tne-p8-qrr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Чаты" image="message.circle" catalog="system" id="tMh-Bv-2Rl"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="0OM-4o-qak">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="backgroundView"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="97C-Oa-dvm" kind="relationship" relationship="rootViewController" id="s9p-AO-VBW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UwS-95-s6k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1698.5507246376812" y="806.91964285714278"/>
+        </scene>
+        <!--Чаты-->
+        <scene sceneID="cjR-K8-3A4">
+            <objects>
+                <tableViewController id="97C-Oa-dvm" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wey-Zx-V3C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="backgroundView"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" id="SMb-Cj-hYc">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SMb-Cj-hYc" id="5wu-gd-2Yc">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" name="backgroundView"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="97C-Oa-dvm" id="Rel-GN-fGZ"/>
+                            <outlet property="delegate" destination="97C-Oa-dvm" id="u2j-V0-yRy"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Чаты" id="Jqk-eR-hAS"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RBb-bp-Bz8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2474" y="807"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="message.circle" catalog="system" width="64" height="60"/>
+        <image name="person.crop.circle" catalog="system" width="64" height="60"/>
         <namedColor name="backgroundView">
             <color red="0.15999999642372131" green="0.18000000715255737" blue="0.25999999046325684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
