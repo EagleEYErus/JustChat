@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ContactsTableViewController: UITableViewController {
+final class ContactsTableViewController: UITableViewController {
     
     private let viewModel = ContactsListViewModel()
 
@@ -59,6 +59,10 @@ class ContactsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
     }
     
     @IBAction func cancelBarButtonItemAction(_ sender: UIBarButtonItem) {
