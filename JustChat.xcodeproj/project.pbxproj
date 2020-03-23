@@ -129,8 +129,8 @@
 		116210012427D4FE008D55F0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */,
 				11F3DA0C242820E500A062A5 /* SignInViewModel.swift */,
+				11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

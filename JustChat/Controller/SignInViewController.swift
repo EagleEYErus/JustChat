@@ -83,7 +83,7 @@ final class SignInViewController: UIViewController, UITextFieldDelegate {
         viewModel.signIn(email: email, password: password) { [weak self] result in
             switch result {
             case .success:
-                print("auth complete successful")
+                self?.dismiss(animated: true, completion: nil)
             case .failure(let error):
                 self?.showError(message: error.localizedDescription)
             }

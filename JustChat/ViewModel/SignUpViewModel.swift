@@ -20,8 +20,9 @@ final class SignUpViewModel {
             ref.updateChildValues(["name": name, "email": email]) { (err, ref) in
                 if let err = err {
                     completion(.failure(err))
+                } else {
+                    completion(.success(()))
                 }
-                completion(.success(()))
             }
         }
 

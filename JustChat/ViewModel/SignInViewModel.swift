@@ -13,8 +13,9 @@ final class SignInViewModel {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 completion(.failure(error))
+            } else {
+                completion(.success(()))
             }
-            completion(.success(()))
         }
     }
 }
