@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		11620FEA2427D129008D55F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11620FE92427D129008D55F0 /* AppDelegate.swift */; };
 		11620FEC2427D129008D55F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11620FEB2427D129008D55F0 /* SceneDelegate.swift */; };
-		11620FEE2427D129008D55F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11620FED2427D129008D55F0 /* ViewController.swift */; };
 		11620FF12427D129008D55F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11620FEF2427D129008D55F0 /* Main.storyboard */; };
 		11620FF32427D12B008D55F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11620FF22427D12B008D55F0 /* Assets.xcassets */; };
 		11620FF62427D12B008D55F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11620FF42427D12B008D55F0 /* LaunchScreen.storyboard */; };
@@ -20,6 +19,7 @@
 		116210112428133C008D55F0 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116210102428133C008D55F0 /* Extension+String.swift */; };
 		11621013242814FC008D55F0 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11621012242814FC008D55F0 /* Extension+UIButton.swift */; };
 		11621015242817D0008D55F0 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11621014242817D0008D55F0 /* Extension+UIViewController.swift */; };
+		1176375E24290F2C006A66A1 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176375D24290F2C006A66A1 /* UsersTableViewController.swift */; };
 		11F3DA0B24281F2800A062A5 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */; };
 		11F3DA0D242820E500A062A5 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3DA0C242820E500A062A5 /* SignInViewModel.swift */; };
 		5DF7B893F67CF7357FC0199C /* Pods_JustChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865C5D5EDFE33C543E87B6E8 /* Pods_JustChat.framework */; };
@@ -29,7 +29,6 @@
 		11620FE62427D129008D55F0 /* JustChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11620FE92427D129008D55F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11620FEB2427D129008D55F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		11620FED2427D129008D55F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		11620FF02427D129008D55F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		11620FF22427D12B008D55F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11620FF52427D12B008D55F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,6 +40,7 @@
 		116210102428133C008D55F0 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		11621012242814FC008D55F0 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		11621014242817D0008D55F0 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		1176375D24290F2C006A66A1 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		11F3DA0C242820E500A062A5 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		6BCB1EE7E419D02B8325CF6C /* Pods-JustChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustChat.release.xcconfig"; path = "Target Support Files/Pods-JustChat/Pods-JustChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		116210022427D508008D55F0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				11620FED2427D129008D55F0 /* ViewController.swift */,
+				1176375D24290F2C006A66A1 /* UsersTableViewController.swift */,
 				1162100A2427ED88008D55F0 /* SignInViewController.swift */,
 				1162100E242806AF008D55F0 /* SignUpViewController.swift */,
 			);
@@ -312,9 +312,9 @@
 			files = (
 				11621015242817D0008D55F0 /* Extension+UIViewController.swift in Sources */,
 				1162100B2427ED88008D55F0 /* SignInViewController.swift in Sources */,
-				11620FEE2427D129008D55F0 /* ViewController.swift in Sources */,
 				116210112428133C008D55F0 /* Extension+String.swift in Sources */,
 				11F3DA0D242820E500A062A5 /* SignInViewModel.swift in Sources */,
+				1176375E24290F2C006A66A1 /* UsersTableViewController.swift in Sources */,
 				11F3DA0B24281F2800A062A5 /* SignUpViewModel.swift in Sources */,
 				11621013242814FC008D55F0 /* Extension+UIButton.swift in Sources */,
 				11620FEA2427D129008D55F0 /* AppDelegate.swift in Sources */,

@@ -15,4 +15,12 @@ extension UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
+    
+    func showAuth(animated: Bool) {
+        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+        if let vc = storyboard.instantiateInitialViewController() {
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: animated, completion: nil)
+        }
+    }
 }

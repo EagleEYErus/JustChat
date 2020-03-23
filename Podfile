@@ -10,5 +10,5 @@ target 'JustChat' do
   pod 'MessageKit'
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
-  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
 end

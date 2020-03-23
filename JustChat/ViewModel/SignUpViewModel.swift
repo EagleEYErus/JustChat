@@ -16,8 +16,8 @@ final class SignUpViewModel {
                 return
             }
             guard let uid = result?.user.uid else { return }
-            let ref = Database.database().reference().child("users").child(uid)
-            ref.updateChildValues(["name": name, "email": email]) { (err, ref) in
+            let db = Firestore.firestore().collection("users").document(uid)
+            db.setData(["name": name, "email": email]) { err in
                 if let err = err {
                     completion(.failure(err))
                 } else {
@@ -25,6 +25,5 @@ final class SignUpViewModel {
                 }
             }
         }
-
     }
 }
