@@ -18,12 +18,12 @@ extension UIImageView {
             return
         }
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
             guard let data = data else { return }
             if let downloadedImage = UIImage(data: data) {
                 imageCache.setObject(downloadedImage, forKey: NSString(string: urlString))
                 DispatchQueue.main.async {
-                    self.image = downloadedImage
+                    self?.image = downloadedImage
                 }
             }
         }.resume()

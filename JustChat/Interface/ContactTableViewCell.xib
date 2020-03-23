@@ -17,8 +17,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ViH-ub-Vkl">
-                        <rect key="frame" x="16" y="7" width="30" height="30"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ViH-ub-Vkl">
+                        <rect key="frame" x="16" y="7.5" width="30" height="29"/>
+                        <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="Nfr-pp-5od"/>
                             <constraint firstAttribute="height" constant="30" id="YZK-Gb-4z7"/>
@@ -52,6 +53,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="person.crop.circle.fill" catalog="system" width="64" height="60"/>
         <namedColor name="backgroundView">
             <color red="0.15999999642372131" green="0.18000000715255737" blue="0.25999999046325684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
