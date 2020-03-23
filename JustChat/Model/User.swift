@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alexander Saprykin. All rights reserved.
 //
 
-struct User: Decodable {
+struct User {
     var name: String
     var email: String
     var avatarUrl: String

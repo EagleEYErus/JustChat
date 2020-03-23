@@ -12,6 +12,7 @@ import Firebase
 final class ContactsTableViewController: UITableViewController {
     
     private let viewModel = ContactsListViewModel()
+    private let reuseIdentifier = "contactCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,11 @@ final class ContactsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         checkAuth()
-        tableView.register(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: "contactCell")
+        registerTableViewCell()
+    }
+    
+    private func registerTableViewCell() {
+        tableView.register(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
     }
     
     private func checkAuth() {
@@ -49,7 +54,7 @@ final class ContactsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as? ContactTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? ContactTableViewCell else { return UITableViewCell() }
         
         cell.avatarImageView.loadImageUsingCache(by: viewModel.users[indexPath.row].avatarUrl)
         cell.nameLabel.text = viewModel.users[indexPath.row].name
