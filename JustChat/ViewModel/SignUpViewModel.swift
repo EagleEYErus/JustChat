@@ -32,23 +32,23 @@ final class SignUpViewModel {
             ref.putData(uploadData, metadata: nil) { (metadata, storageError) in
                 if let storageError = storageError {
                     completion(.failure(storageError))
-                } else {
-                    ref.downloadURL { (url, downloadUrlError) in
-                        if let downloadUrlError = downloadUrlError {
-                            completion(.failure(downloadUrlError))
+                    return
+                }
+                ref.downloadURL { (url, downloadUrlError) in
+                    if let downloadUrlError = downloadUrlError {
+                        completion(.failure(downloadUrlError))
+                        return
+                    }
+                    guard let url = url else {
+                        completion(.failure(unknownError))
+                        return
+                    }
+                    let db = Firestore.firestore().collection("users").document(uid)
+                    db.setData(["name": name, "email": email, "avatarUrl": url.absoluteString]) { err in
+                        if let err = err {
+                            completion(.failure(err))
                         } else {
-                            guard let url = url else {
-                                completion(.failure(unknownError))
-                                return
-                            }
-                            let db = Firestore.firestore().collection("users").document(uid)
-                            db.setData(["name": name, "email": email, "avatarUrl": url.absoluteString]) { err in
-                                if let err = err {
-                                    completion(.failure(err))
-                                } else {
-                                    completion(.success(()))
-                                }
-                            }
+                            completion(.success(()))
                         }
                     }
                 }
