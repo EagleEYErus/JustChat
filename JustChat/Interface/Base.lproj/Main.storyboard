@@ -15,6 +15,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yZj-XW-uzt">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="backgroundView"/>
                     </tabBar>
                     <connections>
                         <segue destination="OgR-x0-2vj" kind="relationship" relationship="viewControllers" id="h1H-Ou-fJu"/>
