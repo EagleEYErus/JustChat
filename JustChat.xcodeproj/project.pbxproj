@@ -22,6 +22,9 @@
 		1176375E24290F2C006A66A1 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176375D24290F2C006A66A1 /* ContactsTableViewController.swift */; };
 		1176376224292620006A66A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176376124292620006A66A1 /* User.swift */; };
 		1176376424292C7F006A66A1 /* ContactsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176376324292C7F006A66A1 /* ContactsListViewModel.swift */; };
+		1176376624296B43006A66A1 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176376524296B43006A66A1 /* Extension+UIImageView.swift */; };
+		1176376D242972F0006A66A1 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176376B242972F0006A66A1 /* ContactTableViewCell.swift */; };
+		1176376E242972F0006A66A1 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1176376C242972F0006A66A1 /* ContactTableViewCell.xib */; };
 		11F3DA0B24281F2800A062A5 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */; };
 		11F3DA0D242820E500A062A5 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3DA0C242820E500A062A5 /* SignInViewModel.swift */; };
 		5DF7B893F67CF7357FC0199C /* Pods_JustChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865C5D5EDFE33C543E87B6E8 /* Pods_JustChat.framework */; };
@@ -45,6 +48,9 @@
 		1176375D24290F2C006A66A1 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		1176376124292620006A66A1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1176376324292C7F006A66A1 /* ContactsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewModel.swift; sourceTree = "<group>"; };
+		1176376524296B43006A66A1 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
+		1176376B242972F0006A66A1 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		1176376C242972F0006A66A1 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		11F3DA0C242820E500A062A5 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		6BCB1EE7E419D02B8325CF6C /* Pods-JustChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustChat.release.xcconfig"; path = "Target Support Files/Pods-JustChat/Pods-JustChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +133,7 @@
 		116210002427D4F9008D55F0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1176376B242972F0006A66A1 /* ContactTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -134,9 +141,9 @@
 		116210012427D4FE008D55F0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1176376324292C7F006A66A1 /* ContactsListViewModel.swift */,
 				11F3DA0C242820E500A062A5 /* SignInViewModel.swift */,
 				11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */,
-				1176376324292C7F006A66A1 /* ContactsListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -157,6 +164,7 @@
 				11620FEF2427D129008D55F0 /* Main.storyboard */,
 				116210082427E357008D55F0 /* Auth.storyboard */,
 				11620FF42427D12B008D55F0 /* LaunchScreen.storyboard */,
+				1176376C242972F0006A66A1 /* ContactTableViewCell.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -167,6 +175,7 @@
 				116210102428133C008D55F0 /* Extension+String.swift */,
 				11621012242814FC008D55F0 /* Extension+UIButton.swift */,
 				11621014242817D0008D55F0 /* Extension+UIViewController.swift */,
+				1176376524296B43006A66A1 /* Extension+UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -241,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1176376E242972F0006A66A1 /* ContactTableViewCell.xib in Resources */,
 				11620FF62427D12B008D55F0 /* LaunchScreen.storyboard in Resources */,
 				116210072427D739008D55F0 /* GoogleService-Info.plist in Resources */,
 				116210092427E357008D55F0 /* Auth.storyboard in Resources */,
@@ -320,9 +330,11 @@
 				1176376424292C7F006A66A1 /* ContactsListViewModel.swift in Sources */,
 				1162100B2427ED88008D55F0 /* SignInViewController.swift in Sources */,
 				116210112428133C008D55F0 /* Extension+String.swift in Sources */,
+				1176376D242972F0006A66A1 /* ContactTableViewCell.swift in Sources */,
 				11F3DA0D242820E500A062A5 /* SignInViewModel.swift in Sources */,
 				1176375E24290F2C006A66A1 /* ContactsTableViewController.swift in Sources */,
 				11F3DA0B24281F2800A062A5 /* SignUpViewModel.swift in Sources */,
+				1176376624296B43006A66A1 /* Extension+UIImageView.swift in Sources */,
 				11621013242814FC008D55F0 /* Extension+UIButton.swift in Sources */,
 				11620FEA2427D129008D55F0 /* AppDelegate.swift in Sources */,
 				11620FEC2427D129008D55F0 /* SceneDelegate.swift in Sources */,

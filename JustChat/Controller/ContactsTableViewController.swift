@@ -21,6 +21,7 @@ class ContactsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         checkAuth()
+        tableView.register(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: "contactCell")
     }
     
     private func checkAuth() {
@@ -48,10 +49,10 @@ class ContactsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as? ContactTableViewCell else { return UITableViewCell() }
         
-        cell.imageView?.image = UIImage(systemName: "person")
-        cell.textLabel?.text = viewModel.users[indexPath.row].name
+        cell.avatarImageView.loadImageUsingCache(by: viewModel.users[indexPath.row].avatarUrl)
+        cell.nameLabel.text = viewModel.users[indexPath.row].name
 
         return cell
     }

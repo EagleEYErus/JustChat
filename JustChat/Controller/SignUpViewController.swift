@@ -10,6 +10,7 @@ import UIKit
 
 final class SignUpViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var inputsContainerView: UIView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -17,6 +18,7 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var signUpButton: UIButton!
     
     private let viewModel = SignUpViewModel()
+    private var isAvatarSet = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +26,10 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
         signUpButton.disable()
         setupInputsContainerViewLayout()
         setupLoginButtonLayout()
+        setupAvatarImageViewLayout()
         delegating()
         addTargetToTextFields()
+        addGestureRecognizer()
     }
     
     private func setupInputsContainerViewLayout() {
@@ -36,6 +40,11 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
     private func setupLoginButtonLayout() {
         signUpButton.layer.cornerRadius = 25
         signUpButton.layer.masksToBounds = true
+    }
+    
+    private func setupAvatarImageViewLayout() {
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
+        avatarImageView.layer.masksToBounds = true
     }
     
     private func delegating() {
@@ -49,19 +58,19 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
-
     
-    private func isTextFieldsVerified() -> Bool {
+    private func addGestureRecognizer() {
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(selectAvatarImageView))
+        avatarImageView.addGestureRecognizer(recognizer)
+    }
+
+    private func isDataInputsVerified() -> Bool {
         guard let email = emailTextField.text else { return false }
-        if nameTextField.text?.count == 0 || passwordTextField.text?.count ?? 0 <= 5 || !email.isValidEmail {
-            return false
-        } else {
-            return true
-        }
+        return nameTextField.text?.count != 0 && passwordTextField.text?.count ?? 0 > 5 && email.isValidEmail && isAvatarSet
     }
     
     @objc private func textFieldDidChange() {
-        if isTextFieldsVerified() {
+        if isDataInputsVerified() {
             signUpButton.enable()
         } else {
             signUpButton.disable()
@@ -81,6 +90,13 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
        return false
     }
     
+    @objc func selectAvatarImageView() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true)
+    }
+    
     @IBAction func closeBarButtonItemAction(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
@@ -88,8 +104,9 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signUpBittonAction(_ sender: UIButton) {
         guard let name = nameTextField.text,
             let email = emailTextField.text,
-            let password = passwordTextField.text else { return }
-        viewModel.signUp(name: name, email: email, password: password) { [weak self] result in
+            let password = passwordTextField.text,
+            let avararImage = avatarImageView.image else { return }
+        viewModel.signUp(name: name, email: email, password: password, avatarImage: avararImage) { [weak self] result in
             switch result {
             case .success:
                 self?.dismiss(animated: true, completion: nil)
@@ -97,5 +114,26 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
                 self?.showError(message: error.localizedDescription)
             }
         }
+    }
+}
+
+extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var selectedImageFromPicker: UIImage?
+        
+        if let editedImage = info[.editedImage] as? UIImage {
+            selectedImageFromPicker = editedImage
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            selectedImageFromPicker = originalImage
+        }
+        
+        if let selectedImage = selectedImageFromPicker {
+            avatarImageView.image = selectedImage
+            isAvatarSet = true
+            if isDataInputsVerified() {
+                signUpButton.enable()
+            }
+        }
+        dismiss(animated: true, completion: nil)
     }
 }

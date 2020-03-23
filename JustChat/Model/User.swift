@@ -9,11 +9,13 @@
 struct User: Decodable {
     var name: String
     var email: String
+    var avatarUrl: String
 
     var dictionary: [String: Any] {
         return [
             "name": name,
-            "email": email
+            "email": email,
+            "avatarUrl": avatarUrl
         ]
     }
 }
@@ -21,7 +23,8 @@ struct User: Decodable {
 extension User {
     init?(dictionary: [String: Any]) {
         guard let name = dictionary["name"] as? String,
-            let email = dictionary["email"] as? String else { return nil }
-        self.init(name: name, email: email)
+            let email = dictionary["email"] as? String,
+            let avatarUrl = dictionary["avatarUrl"] as? String else { return nil }
+        self.init(name: name, email: email, avatarUrl: avatarUrl)
     }
 }
