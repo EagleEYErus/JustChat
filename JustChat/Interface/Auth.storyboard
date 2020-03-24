@@ -33,7 +33,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiY-Wg-V7d">
-                                <rect key="frame" x="20" y="311" width="374" height="80"/>
+                                <rect key="frame" x="20" y="321" width="374" height="80"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите почту..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h4z-8O-gnI">
                                         <rect key="frame" x="12" y="0.0" width="362" height="40"/>
@@ -70,7 +70,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBv-nn-SQC">
-                                <rect key="frame" x="20" y="416" width="374" height="50"/>
+                                <rect key="frame" x="20" y="426" width="374" height="50"/>
                                 <color key="backgroundColor" name="buttonColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Q0f-jI-Sx2"/>
@@ -84,7 +84,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBR-3I-XQi">
-                                <rect key="frame" x="77" y="474" width="260" height="33"/>
+                                <rect key="frame" x="77" y="484" width="260" height="33"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Еще нет аккаунта?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voo-qX-Mhr">
                                         <rect key="frame" x="0.0" y="0.0" width="149" height="33"/>
@@ -129,7 +129,7 @@
                             <constraint firstItem="TOx-XK-qE3" firstAttribute="top" secondItem="qJQ-QT-Q6L" secondAttribute="top" constant="20" id="HPM-M1-oah"/>
                             <constraint firstItem="qJQ-QT-Q6L" firstAttribute="trailing" secondItem="EBv-nn-SQC" secondAttribute="trailing" constant="20" id="Jr2-lJ-f18"/>
                             <constraint firstItem="TOx-XK-qE3" firstAttribute="centerX" secondItem="zpO-WE-Ytc" secondAttribute="centerX" id="REb-5J-vB5"/>
-                            <constraint firstItem="xiY-Wg-V7d" firstAttribute="top" secondItem="5EJ-5g-Dpd" secondAttribute="bottom" constant="30" id="ScI-pN-OH6"/>
+                            <constraint firstItem="xiY-Wg-V7d" firstAttribute="top" secondItem="5EJ-5g-Dpd" secondAttribute="bottom" constant="40" id="ScI-pN-OH6"/>
                             <constraint firstItem="qJQ-QT-Q6L" firstAttribute="trailing" secondItem="xiY-Wg-V7d" secondAttribute="trailing" constant="20" id="Y3m-W0-MYg"/>
                             <constraint firstItem="EBv-nn-SQC" firstAttribute="leading" secondItem="qJQ-QT-Q6L" secondAttribute="leading" constant="20" id="bLJ-Ah-6GN"/>
                             <constraint firstItem="xiY-Wg-V7d" firstAttribute="leading" secondItem="qJQ-QT-Q6L" secondAttribute="leading" constant="20" id="gEX-z6-XmI"/>
@@ -157,7 +157,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Wj-BW-Ic0">
-                                <rect key="frame" x="20" y="350" width="374" height="120"/>
+                                <rect key="frame" x="20" y="360" width="374" height="120"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите имя..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HAd-W6-2zD">
                                         <rect key="frame" x="12" y="0.0" width="362" height="40"/>
@@ -213,7 +213,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIB-P2-f13">
-                                <rect key="frame" x="20" y="495" width="374" height="50"/>
+                                <rect key="frame" x="20" y="505" width="374" height="50"/>
                                 <color key="backgroundColor" name="buttonColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="56R-Hw-VQg"/>
@@ -241,7 +241,7 @@
                             <constraint firstItem="rIB-P2-f13" firstAttribute="top" secondItem="7Wj-BW-Ic0" secondAttribute="bottom" constant="25" id="GxG-ud-ciM"/>
                             <constraint firstItem="hcA-QD-Kqa" firstAttribute="centerX" secondItem="cFS-jn-7Jh" secondAttribute="centerX" id="NVZ-0q-cB9"/>
                             <constraint firstItem="3Iy-MF-HQr" firstAttribute="trailing" secondItem="rIB-P2-f13" secondAttribute="trailing" constant="20" id="U6Z-er-4bZ"/>
-                            <constraint firstItem="7Wj-BW-Ic0" firstAttribute="top" secondItem="hcA-QD-Kqa" secondAttribute="bottom" constant="30" id="e7r-Pr-VCb"/>
+                            <constraint firstItem="7Wj-BW-Ic0" firstAttribute="top" secondItem="hcA-QD-Kqa" secondAttribute="bottom" constant="40" id="e7r-Pr-VCb"/>
                             <constraint firstItem="3Iy-MF-HQr" firstAttribute="trailing" secondItem="7Wj-BW-Ic0" secondAttribute="trailing" constant="20" id="gCA-Xe-oDU"/>
                             <constraint firstItem="hcA-QD-Kqa" firstAttribute="top" secondItem="3Iy-MF-HQr" secondAttribute="top" constant="30" id="tDC-3d-yco"/>
                         </constraints>
