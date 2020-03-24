@@ -23,9 +23,9 @@ final class SignUpViewModel {
             }
             
             let imageName = UUID().uuidString
-            let ref = Storage.storage().reference().child("avatars").child("\(imageName).png")
+            let ref = Storage.storage().reference().child("avatars").child("\(imageName).jpg")
             
-            guard let uploadData = avatarImage.pngData() else {
+            guard let uploadData = avatarImage.jpegData(compressionQuality: 0.1) else {
                 completion(.failure(unknownError))
                 return
             }
