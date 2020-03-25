@@ -30,9 +30,14 @@ final class LoadingButton: UIButton {
         
         activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.color = .white
-        activityIndicator.center = CGPoint(x: (frame.width - activityIndicator.frame.width) / 2, y: frame.height / 2)
-        activityIndicator.hidesWhenStopped = true
         addSubview(activityIndicator)
+        addConstraints()
+    }
+    
+    private func addConstraints() {
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
     func startAnimating() {
