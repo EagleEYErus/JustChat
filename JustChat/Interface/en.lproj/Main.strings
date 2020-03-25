@@ -1,0 +1,15 @@
+
+/* Class = "UINavigationItem"; title = "Чаты"; ObjectID = "Jqk-eR-hAS"; */
+"Jqk-eR-hAS.title" = "Чаты";
+
+/* Class = "UITabBarItem"; title = "Контакты"; ObjectID = "Osy-5f-x2u"; */
+"Osy-5f-x2u.title" = "Контакты";
+
+/* Class = "UIBarButtonItem"; title = "Выйти"; ObjectID = "mtt-2O-OQJ"; */
+"mtt-2O-OQJ.title" = "Выйти";
+
+/* Class = "UINavigationItem"; title = "Контакты"; ObjectID = "qVn-ZQ-hQ3"; */
+"qVn-ZQ-hQ3.title" = "Контакты";
+
+/* Class = "UITabBarItem"; title = "Чаты"; ObjectID = "tMh-Bv-2Rl"; */
+"tMh-Bv-2Rl.title" = "Чаты";

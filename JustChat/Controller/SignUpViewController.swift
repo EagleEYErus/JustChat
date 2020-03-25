@@ -15,10 +15,9 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var signUpButton: LoadingButton!
     
     private let viewModel = SignUpViewModel()
-    private let spinnerView = UIActivityIndicatorView(style: .large)
     private var isAvatarSet = false
 
     override func viewDidLoad() {
@@ -31,14 +30,6 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
         delegating()
         addTargetToTextFields()
         addGestureRecognizer()
-        setupSpinnerViewLayout()
-    }
-    
-    private func setupSpinnerViewLayout() {
-        spinnerView.center.x = view.center.x
-        spinnerView.frame.origin.y = inputsContainerView.frame.origin.y - spinnerView.frame.height - 1.5
-        spinnerView.color = .white
-        view.addSubview(spinnerView)
     }
     
     private func setupInputsContainerViewLayout() {
@@ -115,9 +106,9 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
             let email = emailTextField.text,
             let password = passwordTextField.text,
             let avararImage = avatarImageView.image else { return }
-        spinnerView.startAnimating()
+        signUpButton.startAnimating()
         viewModel.signUp(name: name, email: email, password: password, avatarImage: avararImage) { [weak self] result in
-            self?.spinnerView.stopAnimating()
+            self?.signUpButton.stopAnimating()
             switch result {
             case .success:
                 self?.dismiss(animated: true, completion: nil)

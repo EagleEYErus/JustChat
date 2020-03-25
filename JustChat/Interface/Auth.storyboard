@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nlt-sm-3Vf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nlt-sm-3Vf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -69,7 +69,7 @@
                                     <constraint firstItem="3Nv-dT-zyw" firstAttribute="top" secondItem="h4z-8O-gnI" secondAttribute="bottom" id="x7C-N7-puL"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBv-nn-SQC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBv-nn-SQC" customClass="LoadingButton" customModule="JustChat" customModuleProvider="target">
                                 <rect key="frame" x="20" y="426" width="374" height="50"/>
                                 <color key="backgroundColor" name="buttonColor"/>
                                 <constraints>
@@ -212,7 +212,7 @@
                                     <constraint firstItem="G2g-CO-6uW" firstAttribute="leading" secondItem="7Wj-BW-Ic0" secondAttribute="leading" constant="12" id="zC5-jm-SWz"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIB-P2-f13">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIB-P2-f13" customClass="LoadingButton" customModule="JustChat" customModuleProvider="target">
                                 <rect key="frame" x="20" y="505" width="374" height="50"/>
                                 <color key="backgroundColor" name="buttonColor"/>
                                 <constraints>
@@ -292,7 +292,7 @@
     </scenes>
     <resources>
         <image name="messages" width="512" height="512"/>
-        <image name="plus.circle" catalog="system" width="64" height="60"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
         <namedColor name="backgroundView">
             <color red="0.15999999642372131" green="0.18000000715255737" blue="0.25999999046325684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
