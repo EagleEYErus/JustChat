@@ -17,7 +17,7 @@ final class ContactsListViewModel {
     }
     
     func fetchContacts(email: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        Firestore.firestore().collection("users").addSnapshotListener { (snapshot, error) in
+        Firestore.firestore().collection("users").getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
                 return

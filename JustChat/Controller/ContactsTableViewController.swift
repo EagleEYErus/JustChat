@@ -20,6 +20,10 @@ final class ContactsTableViewController: UITableViewController {
         
         registerTableViewCell()
         setupSpinnerViewLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         fetchContacts()
     }
