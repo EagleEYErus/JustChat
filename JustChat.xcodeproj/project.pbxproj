@@ -82,6 +82,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		11099942242BB1350078D438 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				1109993E242B8F850078D438 /* LoadingButton.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		11620FDD2427D129008D55F0 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +117,7 @@
 				116210012427D4FE008D55F0 /* ViewModel */,
 				116210022427D508008D55F0 /* Controller */,
 				116210042427D527008D55F0 /* Interface */,
+				11099942242BB1350078D438 /* Component */,
 				116210052427D547008D55F0 /* Extensions */,
 				116210062427D739008D55F0 /* GoogleService-Info.plist */,
 			);
@@ -137,7 +146,6 @@
 		116210002427D4F9008D55F0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1109993E242B8F850078D438 /* LoadingButton.swift */,
 				1176376B242972F0006A66A1 /* ContactTableViewCell.swift */,
 			);
 			path = View;
