@@ -17,7 +17,7 @@ final class ContactsListViewModel {
     }
     
     func fetchContacts(email: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        Firestore.firestore().collection("users").getDocuments { (snapshot, error) in
+        Firestore.firestore().collection("users").addSnapshotListener { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -26,7 +26,9 @@ final class ContactsListViewModel {
                 completion(.failure(NSError(domain: "Ошибка загрузки", code: -1, userInfo: nil)))
                 return
             }
-            self.users = documents.compactMap { User(dictionary: $0.data()) }.filter { $0.email != email }
+            self.users = documents.compactMap { User(dictionary: $0.data()) }
+                .filter { $0.email != email }
+                .sorted { $0.name.lowercased() < $1.name.lowercased() }
             completion(.success(()))
         }
     }

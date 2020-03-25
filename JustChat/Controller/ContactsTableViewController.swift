@@ -20,12 +20,8 @@ final class ContactsTableViewController: UITableViewController {
         
         registerTableViewCell()
         setupSpinnerViewLayout()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        checkAuth()
+        
+        fetchContacts()
     }
     
     private func setupSpinnerViewLayout() {
@@ -37,7 +33,7 @@ final class ContactsTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
     }
 
-    private func checkAuth() {
+    private func fetchContacts() {
         if let user = Auth.auth().currentUser {
             guard let email = user.email else { return }
             
