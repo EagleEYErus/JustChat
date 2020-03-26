@@ -11,7 +11,8 @@ import Firebase
 
 final class ContactsTableViewController: UITableViewController {
     
-    private let viewModel = ContactsListViewModel()
+    private let viewModel = ContactListViewModel()
+    private var currentUser: Firebase.User!
     private let spinnerView = UIActivityIndicatorView(style: .large)
     private let reuseIdentifier = "contactCell"
 
@@ -40,6 +41,7 @@ final class ContactsTableViewController: UITableViewController {
     private func fetchContacts() {
         if let user = Auth.auth().currentUser {
             guard let email = user.email else { return }
+            currentUser = user
             
             tableView.separatorStyle = .none
             spinnerView.startAnimating()
@@ -77,7 +79,10 @@ final class ContactsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        let viewController = ChatViewController()
+        viewController.currentUser = currentUser
+        viewController.recipientUser = viewModel.users[indexPath.row]
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -1,5 +1,5 @@
 //
-//  ContactsListViewModel.swift
+//  ContactListViewModel.swift
 //  JustChat
 //
 //  Created by Alexander Saprykin on 23.03.2020.
@@ -8,7 +8,7 @@
 
 import Firebase
 
-final class ContactsListViewModel {
+final class ContactListViewModel {
     
     var users: [User] = []
     
@@ -17,7 +17,7 @@ final class ContactsListViewModel {
     }
     
     func fetchContacts(email: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        Firestore.firestore().collection("users").order(by: "name").getDocuments { (snapshot, error) in
+        Firestore.firestore().collection("users").order(by: "name").getDocuments { [weak self] (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -26,7 +26,7 @@ final class ContactsListViewModel {
                 completion(.failure(NSError(domain: "Ошибка загрузки", code: -1, userInfo: nil)))
                 return
             }
-            self.users = documents.compactMap { User(dictionary: $0.data()) }
+            self?.users = documents.compactMap { User(dictionary: $0.data()) }
                 .filter { $0.email != email }
             completion(.success(()))
         }

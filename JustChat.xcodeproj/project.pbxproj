@@ -22,11 +22,14 @@
 		11621015242817D0008D55F0 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11621014242817D0008D55F0 /* Extension+UIViewController.swift */; };
 		1176375E24290F2C006A66A1 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176375D24290F2C006A66A1 /* ContactsTableViewController.swift */; };
 		1176376224292620006A66A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176376124292620006A66A1 /* User.swift */; };
-		1176376424292C7F006A66A1 /* ContactsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176376324292C7F006A66A1 /* ContactsListViewModel.swift */; };
+		1176376424292C7F006A66A1 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176376324292C7F006A66A1 /* ContactListViewModel.swift */; };
 		1176376624296B43006A66A1 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176376524296B43006A66A1 /* Extension+UIImageView.swift */; };
 		1176376D242972F0006A66A1 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176376B242972F0006A66A1 /* ContactTableViewCell.swift */; };
 		1176376E242972F0006A66A1 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1176376C242972F0006A66A1 /* ContactTableViewCell.xib */; };
 		11763772242A7740006A66A1 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11763771242A7740006A66A1 /* ChatViewController.swift */; };
+		11DA5B84242D1BBD00A8581E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA5B83242D1BBD00A8581E /* Message.swift */; };
+		11DA5B86242D33A800A8581E /* MessageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA5B85242D33A800A8581E /* MessageListViewModel.swift */; };
+		11DA5B88242D655500A8581E /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA5B87242D655500A8581E /* Sender.swift */; };
 		11F3DA0B24281F2800A062A5 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */; };
 		11F3DA0D242820E500A062A5 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3DA0C242820E500A062A5 /* SignInViewModel.swift */; };
 		5DF7B893F67CF7357FC0199C /* Pods_JustChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865C5D5EDFE33C543E87B6E8 /* Pods_JustChat.framework */; };
@@ -50,11 +53,14 @@
 		11621014242817D0008D55F0 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		1176375D24290F2C006A66A1 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		1176376124292620006A66A1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		1176376324292C7F006A66A1 /* ContactsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewModel.swift; sourceTree = "<group>"; };
+		1176376324292C7F006A66A1 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
 		1176376524296B43006A66A1 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
 		1176376B242972F0006A66A1 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		1176376C242972F0006A66A1 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		11763771242A7740006A66A1 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		11DA5B83242D1BBD00A8581E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		11DA5B85242D33A800A8581E /* MessageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewModel.swift; sourceTree = "<group>"; };
+		11DA5B87242D655500A8581E /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		11F3DA0C242820E500A062A5 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		6BCB1EE7E419D02B8325CF6C /* Pods-JustChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustChat.release.xcconfig"; path = "Target Support Files/Pods-JustChat/Pods-JustChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				1176376124292620006A66A1 /* User.swift */,
+				11DA5B83242D1BBD00A8581E /* Message.swift */,
+				11DA5B87242D655500A8581E /* Sender.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,7 +162,8 @@
 		116210012427D4FE008D55F0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				1176376324292C7F006A66A1 /* ContactsListViewModel.swift */,
+				1176376324292C7F006A66A1 /* ContactListViewModel.swift */,
+				11DA5B85242D33A800A8581E /* MessageListViewModel.swift */,
 				11F3DA0C242820E500A062A5 /* SignInViewModel.swift */,
 				11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */,
 			);
@@ -341,10 +350,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				11621015242817D0008D55F0 /* Extension+UIViewController.swift in Sources */,
-				1176376424292C7F006A66A1 /* ContactsListViewModel.swift in Sources */,
+				1176376424292C7F006A66A1 /* ContactListViewModel.swift in Sources */,
 				1162100B2427ED88008D55F0 /* SignInViewController.swift in Sources */,
+				11DA5B88242D655500A8581E /* Sender.swift in Sources */,
+				11DA5B84242D1BBD00A8581E /* Message.swift in Sources */,
 				116210112428133C008D55F0 /* Extension+String.swift in Sources */,
 				1176376D242972F0006A66A1 /* ContactTableViewCell.swift in Sources */,
+				11DA5B86242D33A800A8581E /* MessageListViewModel.swift in Sources */,
 				11F3DA0D242820E500A062A5 /* SignInViewModel.swift in Sources */,
 				1109993F242B8F850078D438 /* LoadingButton.swift in Sources */,
 				1176375E24290F2C006A66A1 /* ContactsTableViewController.swift in Sources */,

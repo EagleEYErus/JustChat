@@ -17,7 +17,7 @@ final class SignUpViewModel {
                 completion(.failure(error))
                 return
             }
-            guard let uid = result?.user.uid else {
+            guard let user = result?.user else {
                 completion(.failure(unknownError))
                 return
             }
@@ -43,8 +43,13 @@ final class SignUpViewModel {
                         completion(.failure(unknownError))
                         return
                     }
-                    let db = Firestore.firestore().collection("users").document(uid)
-                    db.setData(["name": name, "email": email, "avatarUrl": url.absoluteString]) { err in
+                    let changeRequest = user.createProfileChangeRequest()
+                    changeRequest.displayName = name
+                    changeRequest.photoURL = url
+                    changeRequest.commitChanges()
+
+                    let db = Firestore.firestore().collection("users").document(user.uid)
+                    db.setData(["id": user.uid, "name": name, "email": email, "avatarUrl": url.absoluteString]) { err in
                         if let err = err {
                             completion(.failure(err))
                         } else {
