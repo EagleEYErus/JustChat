@@ -17,6 +17,7 @@ final class MessageListViewModel {
     }
     
     private var userIds: [String]
+    private var listener: ListenerRegistration?
     private let unknownError = NSError(domain: "Что-то пошло не так. Попробуйте еще раз.", code: -1, userInfo: nil)
     
     init(userIds: [String]) {
@@ -75,7 +76,7 @@ final class MessageListViewModel {
                 completion(.failure(strongSelf.unknownError))
                 return
             }
-            doc.reference.collection("thread").order(by: "created").addSnapshotListener { (messagesSnaphot, messagesError) in
+            strongSelf.listener = doc.reference.collection("thread").order(by: "created").addSnapshotListener { (messagesSnaphot, messagesError) in
                 if let err = messagesError {
                     completion(.failure(err))
                     return
@@ -105,6 +106,12 @@ final class MessageListViewModel {
             } else {
                 completion(nil)
             }
+        }
+    }
+    
+    deinit {
+        if let listener = listener {
+            listener.remove()
         }
     }
 }
