@@ -17,7 +17,7 @@ final class ContactsListViewModel {
     }
     
     func fetchContacts(email: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        Firestore.firestore().collection("users").getDocuments { (snapshot, error) in
+        Firestore.firestore().collection("users").order(by: "name").getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -28,7 +28,6 @@ final class ContactsListViewModel {
             }
             self.users = documents.compactMap { User(dictionary: $0.data()) }
                 .filter { $0.email != email }
-                .sorted { $0.name.lowercased() < $1.name.lowercased() }
             completion(.success(()))
         }
     }
