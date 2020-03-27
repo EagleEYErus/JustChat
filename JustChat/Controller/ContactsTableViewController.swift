@@ -13,25 +13,18 @@ final class ContactsTableViewController: UITableViewController {
     
     private let viewModel = ContactListViewModel()
     private var currentUser: Firebase.User!
-    private let spinnerView = UIActivityIndicatorView(style: .large)
     private let reuseIdentifier = "contactCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerTableViewCell()
-        setupSpinnerViewLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         fetchContacts()
-    }
-    
-    private func setupSpinnerViewLayout() {
-        spinnerView.color = .white
-        tableView.backgroundView = spinnerView
     }
     
     private func registerTableViewCell() {
@@ -43,12 +36,7 @@ final class ContactsTableViewController: UITableViewController {
             guard let email = user.email else { return }
             currentUser = user
             
-            tableView.separatorStyle = .none
-            spinnerView.startAnimating()
-            
             viewModel.fetchContacts(email: email) { [weak self] result in
-                self?.spinnerView.stopAnimating()
-                self?.tableView.separatorStyle = .singleLine
                 switch result {
                 case .success:
                     self?.tableView.reloadData()
