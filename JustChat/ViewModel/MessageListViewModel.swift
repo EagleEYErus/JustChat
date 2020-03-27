@@ -112,8 +112,6 @@ final class MessageListViewModel {
     }
     
     deinit {
-        if let listener = listener {
-            listener.remove()
-        }
+        listener?.remove()
     }
 }
