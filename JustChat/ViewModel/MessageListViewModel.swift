@@ -18,14 +18,16 @@ final class MessageListViewModel {
     
     private var userIds: [String]
     private var listener: ListenerRegistration?
+    private var searchArray: [[String]]
     private let unknownError = NSError(domain: "Что-то пошло не так. Попробуйте еще раз.", code: -1, userInfo: nil)
     
     init(userIds: [String]) {
         self.userIds = userIds
+        self.searchArray = [userIds, [userIds[1], userIds[0]]]
     }
     
     func sendMessage(message: Message, completion: @escaping (Result<Void, Error>) -> Void) {
-        Firestore.firestore().collection("chats").whereField("users", arrayContainsAny: userIds).getDocuments { [weak self] (snapshot, chatsError) in
+        Firestore.firestore().collection("chats").whereField("users", in: searchArray).getDocuments { [weak self] (snapshot, chatsError) in
             guard let strongSelf = self else { return }
             guard let documents = snapshot?.documents else {
                 completion(.failure(strongSelf.unknownError))
@@ -56,7 +58,7 @@ final class MessageListViewModel {
     }
     
     func observeMessages(completion: @escaping (Result<Void, Error>) -> Void) {
-        Firestore.firestore().collection("chats").whereField("users", arrayContainsAny: userIds).getDocuments { [weak self] (snapshot, error) in
+        Firestore.firestore().collection("chats").whereField("users", in: searchArray).getDocuments { [weak self] (snapshot, error) in
             guard let strongSelf = self else { return }
             guard let documents = snapshot?.documents else {
                 completion(.failure(strongSelf.unknownError))
@@ -92,7 +94,7 @@ final class MessageListViewModel {
     }
     
     private func createChatIfNot(completion: @escaping (Error?) -> Void) {
-        Firestore.firestore().collection("chats").whereField("users", arrayContainsAny: userIds).getDocuments { [weak self] (snapshot, chatsError) in
+        Firestore.firestore().collection("chats").whereField("users", in: searchArray).getDocuments { [weak self] (snapshot, chatsError) in
             guard let strongSelf = self else { return }
             if let error = chatsError {
                 completion(error)
