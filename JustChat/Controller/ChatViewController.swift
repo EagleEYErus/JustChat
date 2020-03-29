@@ -11,11 +11,14 @@ import Firebase
 import MessageKit
 import InputBarAccessoryView
 
-class ChatViewController: MessagesViewController {
+class ChatViewController: MessagesViewController, UITextViewDelegate {
     
     var viewModel: MessageListViewModel!
     var currentUser: Firebase.User!
     var recipientUser: User!
+    
+    private var timer: Timer?
+    private var isTyping = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,14 @@ class ChatViewController: MessagesViewController {
                 self?.showError(message: error.localizedDescription)
             }
         }
+        viewModel.observeIsTyping(userId: recipientUser.id) { [weak self] result in
+            switch result {
+            case .success(let isTyping):
+                self?.setTypingIndicatorViewHidden(!isTyping, animated: true)
+            case .failure(let error):
+                self?.showError(message: error.localizedDescription)
+            }
+        }
     }
     
     func delegating() {
@@ -39,6 +50,7 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        messageInputBar.inputTextView.delegate = self
     }
     
     private func setupLayout() {
@@ -56,6 +68,32 @@ class ChatViewController: MessagesViewController {
         messageInputBar.inputTextView.textColor = .white
         messageInputBar.sendButton.setTitleColor(.white, for: .normal)
         messageInputBar.sendButton.setTitleColor(UIColor.white.withAlphaComponent(0.4), for: .highlighted)
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if !isTyping {
+            isTyping = true
+            viewModel.setIsTyping(userId: currentUser.uid, isTyping: true) { [weak self] result in
+                switch result {
+                case .success: break
+                case .failure(let error):
+                    self?.showError(message: error.localizedDescription)
+                }
+            }
+        }
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(textFieldStopEditing), userInfo: nil, repeats: false)
+    }
+    
+    @objc func textFieldStopEditing(sender: Timer) {
+        viewModel.setIsTyping(userId: currentUser.uid, isTyping: false) { [weak self] result in
+            switch result {
+            case .success:
+                self?.isTyping = false
+            case .failure(let error):
+                self?.showError(message: error.localizedDescription)
+            }
+        }
     }
 }
 

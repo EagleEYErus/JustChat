@@ -17,7 +17,8 @@ final class MessageListViewModel {
     }
     
     private var userIds: [String]
-    private var listener: ListenerRegistration?
+    private var messagesListener: ListenerRegistration?
+    private var isTypingListener: ListenerRegistration?
     private let unknownError = NSError(domain: "Что-то пошло не так. Попробуйте еще раз.", code: -1, userInfo: nil)
     
     init(userIds: [String]) {
@@ -27,6 +28,10 @@ final class MessageListViewModel {
     func sendMessage(message: Message, completion: @escaping (Result<Void, Error>) -> Void) {
         Firestore.firestore().collection("chats").whereField("users", isEqualTo: userIds).getDocuments { [weak self] (snapshot, chatsError) in
             guard let strongSelf = self else { return }
+            if let chatsError = chatsError {
+                completion(.failure(chatsError))
+                return
+            }
             guard let documents = snapshot?.documents else {
                 completion(.failure(strongSelf.unknownError))
                 return
@@ -76,7 +81,7 @@ final class MessageListViewModel {
                 completion(.failure(strongSelf.unknownError))
                 return
             }
-            strongSelf.listener = doc.reference.collection("thread").order(by: "created").addSnapshotListener { (messagesSnaphot, messagesError) in
+            strongSelf.messagesListener = doc.reference.collection("thread").order(by: "created").addSnapshotListener { (messagesSnaphot, messagesError) in
                 if let err = messagesError {
                     completion(.failure(err))
                     return
@@ -87,6 +92,54 @@ final class MessageListViewModel {
                 }
                 strongSelf.messages = document.compactMap { Message(dictionary: $0.data()) }
                 completion(.success(()))
+            }
+        }
+    }
+    
+    func setIsTyping(userId: String, isTyping: Bool, completion: @escaping (Result<Void, Error>) -> Void) {
+        Firestore.firestore().collection("chats").whereField("users", isEqualTo: userIds).getDocuments { [weak self] (snapshot, error) in
+            guard let strongSelf = self else { return }
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            guard let documents = snapshot?.documents else {
+                completion(.failure(strongSelf.unknownError))
+                return
+            }
+            guard let doc = documents.first else {
+                completion(.failure(strongSelf.unknownError))
+                return
+            }
+            doc.reference.updateData([userId: isTyping]) { err in
+                if let err = err {
+                    completion(.failure(err))
+                } else {
+                    completion(.success(()))
+                }
+            }
+        }
+    }
+    
+    func observeIsTyping(userId: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        isTypingListener = Firestore.firestore().collection("chats").whereField("users", isEqualTo: userIds).addSnapshotListener { [weak self] (snapshot, error) in
+            guard let strongSelf = self else { return }
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            guard let documents = snapshot?.documents else {
+                completion(.failure(strongSelf.unknownError))
+                return
+            }
+            guard let doc = documents.first else {
+                completion(.failure(strongSelf.unknownError))
+                return
+            }
+            if let isTyping = doc.data()[userId] as? Bool {
+                completion(.success(isTyping))
+            } else {
+                completion(.success(false))
             }
         }
     }
@@ -110,6 +163,7 @@ final class MessageListViewModel {
     }
     
     deinit {
-        listener?.remove()
+        messagesListener?.remove()
+        isTypingListener?.remove()
     }
 }
