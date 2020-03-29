@@ -15,6 +15,8 @@ final class ChatListViewModel {
     var numberOfRows: Int {
         return chats.count
     }
+    
+    private var listener: ListenerRegistration?
         
     private func fetchChats(userId: String, completion: @escaping (Result<Void, Error>) -> Void) {
         let unknownError = NSError(domain: "Ошибка загрузки данных. Попробуйте позже.", code: -1, userInfo: nil)
@@ -70,8 +72,12 @@ final class ChatListViewModel {
     }
     
     func observeChats(userId: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        Firestore.firestore().collectionGroup("thread").addSnapshotListener { [weak self] (_, _) in
+        listener = Firestore.firestore().collectionGroup("thread").addSnapshotListener { [weak self] (_, _) in
             self?.fetchChats(userId: userId, completion: completion)
         }
+    }
+    
+    deinit {
+        listener?.remove()
     }
 }
