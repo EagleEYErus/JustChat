@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1109993F242B8F850078D438 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1109993E242B8F850078D438 /* LoadingButton.swift */; };
+		111723F4242D781900F5C413 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111723F2242D781900F5C413 /* ChatTableViewCell.swift */; };
+		111723F5242D781900F5C413 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111723F3242D781900F5C413 /* ChatTableViewCell.xib */; };
+		111723F7242D7A7E00F5C413 /* ChatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111723F6242D7A7E00F5C413 /* ChatsTableViewController.swift */; };
+		111723F9242DAEE300F5C413 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111723F8242DAEE300F5C413 /* ChatListViewModel.swift */; };
+		111723FB242DAF0C00F5C413 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111723FA242DAF0C00F5C413 /* Chat.swift */; };
 		11620FEA2427D129008D55F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11620FE92427D129008D55F0 /* AppDelegate.swift */; };
 		11620FEC2427D129008D55F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11620FEB2427D129008D55F0 /* SceneDelegate.swift */; };
 		11620FF12427D129008D55F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11620FEF2427D129008D55F0 /* Main.storyboard */; };
@@ -37,6 +42,11 @@
 
 /* Begin PBXFileReference section */
 		1109993E242B8F850078D438 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
+		111723F2242D781900F5C413 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		111723F3242D781900F5C413 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
+		111723F6242D7A7E00F5C413 /* ChatsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewController.swift; sourceTree = "<group>"; };
+		111723F8242DAEE300F5C413 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		111723FA242DAF0C00F5C413 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		11620FE62427D129008D55F0 /* JustChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11620FE92427D129008D55F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11620FEB2427D129008D55F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +157,7 @@
 				1176376124292620006A66A1 /* User.swift */,
 				11DA5B83242D1BBD00A8581E /* Message.swift */,
 				11DA5B87242D655500A8581E /* Sender.swift */,
+				111723FA242DAF0C00F5C413 /* Chat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				1176376B242972F0006A66A1 /* ContactTableViewCell.swift */,
+				111723F2242D781900F5C413 /* ChatTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,8 +174,9 @@
 		116210012427D4FE008D55F0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				1176376324292C7F006A66A1 /* ContactListViewModel.swift */,
 				11DA5B85242D33A800A8581E /* MessageListViewModel.swift */,
+				111723F8242DAEE300F5C413 /* ChatListViewModel.swift */,
+				1176376324292C7F006A66A1 /* ContactListViewModel.swift */,
 				11F3DA0C242820E500A062A5 /* SignInViewModel.swift */,
 				11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */,
 			);
@@ -174,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				11763771242A7740006A66A1 /* ChatViewController.swift */,
+				111723F6242D7A7E00F5C413 /* ChatsTableViewController.swift */,
 				1176375D24290F2C006A66A1 /* ContactsTableViewController.swift */,
 				1162100A2427ED88008D55F0 /* SignInViewController.swift */,
 				1162100E242806AF008D55F0 /* SignUpViewController.swift */,
@@ -188,6 +202,7 @@
 				116210082427E357008D55F0 /* Auth.storyboard */,
 				11620FF42427D12B008D55F0 /* LaunchScreen.storyboard */,
 				1176376C242972F0006A66A1 /* ContactTableViewCell.xib */,
+				111723F3242D781900F5C413 /* ChatTableViewCell.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -278,6 +293,7 @@
 				116210072427D739008D55F0 /* GoogleService-Info.plist in Resources */,
 				116210092427E357008D55F0 /* Auth.storyboard in Resources */,
 				11620FF32427D12B008D55F0 /* Assets.xcassets in Resources */,
+				111723F5242D781900F5C413 /* ChatTableViewCell.xib in Resources */,
 				11620FF12427D129008D55F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +369,7 @@
 				1176376424292C7F006A66A1 /* ContactListViewModel.swift in Sources */,
 				1162100B2427ED88008D55F0 /* SignInViewController.swift in Sources */,
 				11DA5B88242D655500A8581E /* Sender.swift in Sources */,
+				111723F9242DAEE300F5C413 /* ChatListViewModel.swift in Sources */,
 				11DA5B84242D1BBD00A8581E /* Message.swift in Sources */,
 				116210112428133C008D55F0 /* Extension+String.swift in Sources */,
 				1176376D242972F0006A66A1 /* ContactTableViewCell.swift in Sources */,
@@ -361,13 +378,16 @@
 				1109993F242B8F850078D438 /* LoadingButton.swift in Sources */,
 				1176375E24290F2C006A66A1 /* ContactsTableViewController.swift in Sources */,
 				11F3DA0B24281F2800A062A5 /* SignUpViewModel.swift in Sources */,
+				111723FB242DAF0C00F5C413 /* Chat.swift in Sources */,
 				1176376624296B43006A66A1 /* Extension+UIImageView.swift in Sources */,
 				11621013242814FC008D55F0 /* Extension+UIButton.swift in Sources */,
 				11620FEA2427D129008D55F0 /* AppDelegate.swift in Sources */,
 				11620FEC2427D129008D55F0 /* SceneDelegate.swift in Sources */,
 				1162100F242806AF008D55F0 /* SignUpViewController.swift in Sources */,
+				111723F4242D781900F5C413 /* ChatTableViewCell.swift in Sources */,
 				11763772242A7740006A66A1 /* ChatViewController.swift in Sources */,
 				1176376224292620006A66A1 /* User.swift in Sources */,
+				111723F7242D7A7E00F5C413 /* ChatsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

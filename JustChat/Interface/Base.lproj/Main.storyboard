@@ -108,6 +108,9 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QIb-Lc-aaz">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="97C-Oa-dvm" kind="relationship" relationship="rootViewController" id="s9p-AO-VBW"/>
                     </connections>
@@ -119,7 +122,7 @@
         <!--Чаты-->
         <scene sceneID="cjR-K8-3A4">
             <objects>
-                <tableViewController id="97C-Oa-dvm" sceneMemberID="viewController">
+                <tableViewController id="97C-Oa-dvm" customClass="ChatsTableViewController" customModule="JustChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wey-Zx-V3C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
