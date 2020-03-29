@@ -22,7 +22,7 @@ class ChatViewController: MessagesViewController {
         
         delegating()
         setupLayout()
-        viewModel = MessageListViewModel(userIds: [currentUser.uid, recipientUser.id])
+        viewModel = MessageListViewModel(userIds: [currentUser.uid, recipientUser.id].sorted())
         viewModel.observeMessages { [weak self] result in
             switch result {
             case .success:
