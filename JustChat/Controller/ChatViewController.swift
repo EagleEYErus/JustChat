@@ -132,7 +132,13 @@ extension ChatViewController: MessagesDisplayDelegate {
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        let message = Message(id: UUID().uuidString, text: text, created: Timestamp(), senderId: currentUser.uid, senderName: currentUser.displayName ?? "Unknown")
+                let message = Message(
+            id: UUID().uuidString,
+            text: text.trimmingCharacters(in: .whitespacesAndNewlines),
+            created: Timestamp(),
+            senderId: currentUser.uid,
+            senderName: currentUser.displayName ?? "Unknown"
+        )
         
         viewModel.sendMessage(message: message) { [weak self] result in
             inputBar.inputTextView.text = ""
