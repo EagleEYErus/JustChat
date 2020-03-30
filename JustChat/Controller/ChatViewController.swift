@@ -140,6 +140,10 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             case .success:
                 self?.messagesCollectionView.reloadData()
                 self?.messagesCollectionView.scrollToBottom()
+                if let fcmToken = self?.recipientUser.fcmToken {
+                    let sender = PushNotificationSender()
+                    sender.sendPushNotification(to: fcmToken, title: message.sender.displayName, body: message.text)
+                }
             case .failure(let error):
                 self?.showError(message: error.localizedDescription)
             }

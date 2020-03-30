@@ -8,6 +8,7 @@
 
 struct User {
     var id: String
+    var fcmToken: String?
     var name: String
     var email: String
     var avatarUrl: String
@@ -28,6 +29,7 @@ extension User {
             let name = dictionary["name"] as? String,
             let email = dictionary["email"] as? String,
             let avatarUrl = dictionary["avatarUrl"] as? String else { return nil }
-        self.init(id: id, name: name, email: email, avatarUrl: avatarUrl)
+        let fcmToken = dictionary["fcmToken"] as? String
+        self.init(id: id, fcmToken: fcmToken, name: name, email: email, avatarUrl: avatarUrl)
     }
 }

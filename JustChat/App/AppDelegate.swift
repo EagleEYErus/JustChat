@@ -15,6 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         FirebaseApp.configure()
+        
+        if let user = Auth.auth().currentUser {
+            let pushManager = PushNotificationManager(userID: user.uid)
+            pushManager.registerForPushNotifications()
+        }
 
         return true
     }

@@ -39,14 +39,18 @@ final class ChatListViewModel {
                 Firestore.firestore().collection("users").whereField("id", isEqualTo: recipientId).addSnapshotListener { (userSnap, userError) in
                     if let userError = userError {
                         err = userError
+                        dispatchGroup.leave()
                         return
                     }
                     guard let user = userSnap?.documents.compactMap({ User(dictionary: $0.data()) }).first else {
+                        err = unknownError
+                        dispatchGroup.leave()
                         return
                     }
                     document.reference.collection("thread").order(by: "created").limit(toLast: 1).getDocuments { (messSnap, messError) in
                         if let messError = messError {
                             err = messError
+                            dispatchGroup.leave()
                             return
                         }
                         guard let doc = messSnap?.documents.first else {
