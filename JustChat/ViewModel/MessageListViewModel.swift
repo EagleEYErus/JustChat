@@ -103,13 +103,10 @@ final class MessageListViewModel {
                 completion(.failure(error))
                 return
             }
-            guard let documents = snapshot?.documents else {
-                completion(.failure(strongSelf.unknownError))
-                return
-            }
-            guard let doc = documents.first else {
-                completion(.failure(strongSelf.unknownError))
-                return
+            guard let documents = snapshot?.documents,
+                let doc = documents.first else {
+                    completion(.failure(strongSelf.unknownError))
+                    return
             }
             doc.reference.updateData([userId: isTyping]) { err in
                 if let err = err {
@@ -128,13 +125,10 @@ final class MessageListViewModel {
                 completion(.failure(error))
                 return
             }
-            guard let documents = snapshot?.documents else {
-                completion(.failure(strongSelf.unknownError))
-                return
-            }
-            guard let doc = documents.first else {
-                completion(.failure(strongSelf.unknownError))
-                return
+            guard let documents = snapshot?.documents,
+                let doc = documents.first else {
+                    completion(.failure(strongSelf.unknownError))
+                    return
             }
             if let isTyping = doc.data()[userId] as? Bool {
                 completion(.success(isTyping))
@@ -151,7 +145,10 @@ final class MessageListViewModel {
                 completion(error)
                 return
             }
-            guard let documents = snapshot?.documents else { return }
+            guard let documents = snapshot?.documents else {
+                completion(strongSelf.unknownError)
+                return
+            }
             if documents.count == 0 {
                 Firestore.firestore().collection("chats").addDocument(data: ["users": strongSelf.userIds]) { error in
                     completion(error)
