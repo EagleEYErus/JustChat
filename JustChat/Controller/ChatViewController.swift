@@ -109,6 +109,29 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate {
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return viewModel.messagesCount
     }
+    
+    func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 20
+    }
+    
+    func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        return NSAttributedString(
+            string: message.sender.displayName,
+            attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.white])
+    }
+    
+    func messageBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 20
+    }
+    
+    func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = Calendar.current.isDateInToday(message.sentDate) ? "HH:mm" : "HH:mm dd.MM.YYYY"
+        let dateString = formatter.string(from: message.sentDate)
+        return NSAttributedString(
+            string: dateString,
+            attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.white])
+    }
 }
 
 // MARK: - MessagesDisplayDelegate
