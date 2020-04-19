@@ -47,6 +47,7 @@ final class SignUpViewModel {
                     changeRequest.displayName = name
                     changeRequest.photoURL = url
                     changeRequest.commitChanges()
+                    user.reload(completion: nil)
 
                     let db = Firestore.firestore().collection("users").document(user.uid)
                     db.setData(["id": user.uid, "name": name, "email": email, "avatarUrl": url.absoluteString]) { err in

@@ -33,8 +33,8 @@ final class ChatListViewModel {
             let dispatchGroup = DispatchGroup()
             var err: Error?
             for document in documents {
-                guard let userIds = document.data()["users"] as? [String] else { return }
-                guard let recipientId = userIds.filter({ $0 != userId }).first else { return }
+                guard let userIds = document.data()["users"] as? [String] else { continue }
+                guard let recipientId = userIds.filter({ $0 != userId }).first else { continue }
                 dispatchGroup.enter()
                 Firestore.firestore().collection("users").whereField("id", isEqualTo: recipientId).addSnapshotListener { (userSnap, userError) in
                     if let userError = userError {
