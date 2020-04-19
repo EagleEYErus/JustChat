@@ -45,7 +45,7 @@ class ChatViewController: MessagesViewController, UITextViewDelegate {
         }
     }
     
-    func delegating() {
+    private func delegating() {
         messageInputBar.delegate = self
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
