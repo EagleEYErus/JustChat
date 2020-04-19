@@ -29,6 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
+        
+        UITextField.appearance().keyboardAppearance = .dark
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

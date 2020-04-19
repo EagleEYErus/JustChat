@@ -66,6 +66,7 @@ class ChatViewController: MessagesViewController, UITextViewDelegate {
         messageInputBar.backgroundView.backgroundColor = UIColor(named: "messageInputBar")
         messageInputBar.inputTextView.backgroundColor = UIColor(named: "messageInputBar")
         messageInputBar.inputTextView.textColor = .white
+        messageInputBar.inputTextView.keyboardAppearance = .dark
         messageInputBar.sendButton.setTitleColor(.white, for: .normal)
         messageInputBar.sendButton.setTitleColor(UIColor.white.withAlphaComponent(0.4), for: .highlighted)
     }
