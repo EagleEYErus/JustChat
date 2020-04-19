@@ -59,7 +59,6 @@ final class ChatsTableViewController: UITableViewController {
         let currentChat = viewModel.chats[indexPath.row]
         cell.nameLabel.text = currentChat.user.name
         cell.messageLabel.text = currentChat.lastMessage?.text ?? "Сообщений нет"
-        cell.avatarImageView.loadImageUsingCache(by: currentChat.user.avatarUrl)
         if let created = currentChat.lastMessage?.created.dateValue() {
             let dateFormatter = DateFormatter()
             if abs(created.timeIntervalSinceNow) > 60 * 60 * 24 {
@@ -71,6 +70,8 @@ final class ChatsTableViewController: UITableViewController {
         } else {
             cell.timeLabel.text = ""
         }
+        guard let url = URL(string: currentChat.user.avatarUrl) else { return cell }
+        cell.avatarImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person.crop.circle.fill"), completed: nil)
 
         return cell
     }

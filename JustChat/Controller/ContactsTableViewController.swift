@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
 final class ContactsTableViewController: UITableViewController {
     
@@ -60,8 +61,9 @@ final class ContactsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? ContactTableViewCell else { return UITableViewCell() }
         
-        cell.avatarImageView.loadImageUsingCache(by: viewModel.users[indexPath.row].avatarUrl)
         cell.nameLabel.text = viewModel.users[indexPath.row].name
+        guard let url = URL(string: viewModel.users[indexPath.row].avatarUrl) else { return cell }
+        cell.avatarImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person.crop.circle.fill"), completed: nil)
 
         return cell
     }

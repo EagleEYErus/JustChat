@@ -7,6 +7,7 @@ target 'JustChat' do
   inhibit_all_warnings!
 
   # Pods for JustChat
+  pod 'SDWebImage'
   pod 'MessageKit'
   pod 'Firebase/Auth'
   pod 'Firebase/Core'

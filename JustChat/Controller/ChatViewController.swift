@@ -149,6 +149,16 @@ extension ChatViewController: MessagesDisplayDelegate {
         let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
         return .bubbleTail(corner, .curved)
     }
+    
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        if isFromCurrentSender(message: message) {
+            guard let url = currentUser.photoURL else { return }
+            avatarView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person.crop.circle.fill"), completed: nil)
+        } else {
+            guard let url = URL(string: recipientUser.avatarUrl) else { return }
+            avatarView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person.crop.circle.fill"), completed: nil)
+        }
+    }
 }
 
 // MARK: - InputBarAccessoryViewDelegate
