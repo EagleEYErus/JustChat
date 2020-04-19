@@ -42,7 +42,32 @@ class PushNotificationManager: NSObject, MessagingDelegate, UNUserNotificationCe
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print(response)
+        
+        guard let rootViewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController,
+            let senderId = response.notification.request.content.userInfo["senderId"] as? String,
+            let currentUser = Auth.auth().currentUser else {
+                return
+        }
+        
+        if let tabBarController = rootViewController as? UITabBarController,
+            let navController = tabBarController.selectedViewController as? UINavigationController {
+            Firestore.firestore().collection("users").whereField("id", isEqualTo: senderId).getDocuments { (snapshot, error) in
+                guard error == nil else {
+                    return
+                }
+                guard let document = snapshot?.documents.first else {
+                    return
+                }
+                guard let user = User(dictionary: document.data()) else { return }
+                let viewController = ChatViewController()
+                viewController.currentUser = currentUser
+                viewController.recipientUser = user
+                navController.pushViewController(viewController, animated: true)
+            }
+        }
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        
+        completionHandler()
     }
 }
 

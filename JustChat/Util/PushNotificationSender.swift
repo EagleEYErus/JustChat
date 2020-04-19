@@ -9,13 +9,13 @@
 import Foundation
 
 class PushNotificationSender {
-    func sendPushNotification(to token: String, title: String, body: String) {
+    func sendPushNotification(to token: String, title: String, body: String, senderId: String) {
         let urlString = "https://fcm.googleapis.com/fcm/send"
         guard let url = URL(string: urlString) else { return }
         let paramString: [String : Any] = [
             "to" : token,
             "notification" : ["title" : title, "body" : body],
-            "data" : ["user" : "test_id"]
+            "data" : ["senderId" : senderId]
         ]
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

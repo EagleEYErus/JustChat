@@ -182,7 +182,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 self?.messagesCollectionView.scrollToBottom()
                 if let fcmToken = self?.recipientUser.fcmToken {
                     let sender = PushNotificationSender()
-                    sender.sendPushNotification(to: fcmToken, title: message.sender.displayName, body: message.text)
+                    sender.sendPushNotification(to: fcmToken, title: message.sender.displayName, body: message.text, senderId: message.senderId)
                 }
             case .failure(let error):
                 self?.showError(message: error.localizedDescription)
