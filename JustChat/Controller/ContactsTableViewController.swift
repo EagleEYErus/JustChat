@@ -78,9 +78,4 @@ final class ContactsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
-    
-    @IBAction func cancelBarButtonItemAction(_ sender: UIBarButtonItem) {
-        try? Auth.auth().signOut()
-        showAuth(animated: true)
-    }
 }
