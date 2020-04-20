@@ -153,10 +153,20 @@ extension ChatViewController: MessagesDisplayDelegate {
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         if isFromCurrentSender(message: message) {
-            guard let url = currentUser.photoURL else { return }
+            guard let url = currentUser.photoURL else {
+                avatarView.image = UIImage(systemName: "person.crop.circle.fill")
+                avatarView.tintColor = .systemGray
+                avatarView.backgroundColor = UIColor(named: "backgroundView")
+                return
+            }
             avatarView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person.crop.circle.fill"), completed: nil)
         } else {
-            guard let url = URL(string: recipientUser.avatarUrl) else { return }
+            guard let url = URL(string: recipientUser.avatarUrl) else {
+                avatarView.image = UIImage(systemName: "person.crop.circle.fill")
+                avatarView.tintColor = .systemGray
+                avatarView.backgroundColor = UIColor(named: "backgroundView")
+                return
+            }
             avatarView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person.crop.circle.fill"), completed: nil)
         }
     }
