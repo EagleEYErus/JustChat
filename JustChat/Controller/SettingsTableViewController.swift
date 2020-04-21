@@ -95,13 +95,15 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func saveBarButtonItemAction(_ sender: UIBarButtonItem) {
+        tableView.endEditing(true)
         guard let username = usernameTextField.text else {
             return
         }
         viewModel.updateUsername(by: user, username: username.trimmingCharacters(in: .whitespacesAndNewlines)) { [weak self] (result) in
             switch result {
             case .success:
-                return
+                self?.saveBarButtonItem.isEnabled = false
+                self?.saveBarButtonItem.title = ""
             case .failure(let error):
                 self?.showError(message: error.localizedDescription)
             }
