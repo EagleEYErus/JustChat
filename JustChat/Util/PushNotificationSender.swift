@@ -14,7 +14,7 @@ class PushNotificationSender {
         guard let url = URL(string: urlString) else { return }
         let paramString: [String : Any] = [
             "to" : token,
-            "notification" : ["title" : title, "body" : body],
+            "notification" : ["title" : title, "body" : body, "sound": "default"],
             "data" : ["senderId" : senderId]
         ]
         var request = URLRequest(url: url)
