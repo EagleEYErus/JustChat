@@ -9,7 +9,7 @@
 import Firebase
 import UserNotifications
 
-class PushNotificationManager: NSObject, MessagingDelegate, UNUserNotificationCenterDelegate {
+final class PushNotificationManager: NSObject, MessagingDelegate, UNUserNotificationCenterDelegate {
     
     let userID: String
     

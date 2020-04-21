@@ -76,12 +76,17 @@ final class ChatListViewModel {
     }
     
     func observeChats(userId: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        removeListener()
         listener = Firestore.firestore().collectionGroup("thread").addSnapshotListener { [weak self] (_, _) in
             self?.fetchChats(userId: userId, completion: completion)
         }
     }
     
-    deinit {
+    private func removeListener() {
         listener?.remove()
+    }
+    
+    deinit {
+        removeListener()
     }
 }

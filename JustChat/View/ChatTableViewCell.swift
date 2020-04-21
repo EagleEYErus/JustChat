@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatTableViewCell: UITableViewCell {
+final class ChatTableViewCell: UITableViewCell {
     
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

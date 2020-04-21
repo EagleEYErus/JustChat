@@ -8,7 +8,7 @@
 
 import Firebase
 
-class SettingsViewModel {
+final class SettingsViewModel {
     func updateUsername(by user: Firebase.User, username: String, completion: @escaping (Result<Void, Error>) -> Void) {
         let unknownError = NSError(domain: "Что-то пошло не так. Попробуйте еще раз.", code: -1, userInfo: nil)
         Firestore.firestore().collection("users").whereField("id", isEqualTo: user.uid).getDocuments { (snapshot, error) in

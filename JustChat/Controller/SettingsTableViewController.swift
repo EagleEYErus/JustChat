@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class SettingsTableViewController: UITableViewController {
+final class SettingsTableViewController: UITableViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
@@ -21,20 +21,27 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         addGestureRecognizer()
-        
-        guard let currentUser = Auth.auth().currentUser else {
-            showAuth(animated: true)
-            return
-        }
-        
-        user = currentUser
+        checkAuth()
         
         saveBarButtonItem.isEnabled = false
         saveBarButtonItem.title = ""
         
         usernameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         usernameTextField.attributedPlaceholder = NSAttributedString(string: "Не указано", attributes: [.foregroundColor: UIColor.lightGray])
-        usernameTextField.text = currentUser.displayName ?? ""
+    }
+    
+    private func checkAuth() {
+        if let currentUser = Auth.auth().currentUser {
+            user = currentUser
+            usernameTextField.text = user.displayName ?? ""
+        } else {
+            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+            if let vc = storyboard.instantiateInitialViewController() as? SignInViewController {
+                vc.modalPresentationStyle = .fullScreen
+                vc.delegate = self
+                present(vc, animated: false, completion: nil)
+            }
+        }
     }
     
     private func addGestureRecognizer() {
@@ -72,7 +79,12 @@ class SettingsTableViewController: UITableViewController {
         let alert = UIAlertController(title: "", message: "Вы уверены, что хотите выйти?", preferredStyle: .actionSheet)
         let yesAction = UIAlertAction(title: "Выйти", style: .destructive) { _ in
             try? Auth.auth().signOut()
-            self.showAuth(animated: true)
+            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+            if let vc = storyboard.instantiateInitialViewController() as? SignInViewController {
+                vc.modalPresentationStyle = .fullScreen
+                vc.delegate = self
+                self.present(vc, animated: false, completion: nil)
+            }
         }
         let cancelAction = UIAlertAction(title: "Отменить", style: .cancel, handler: nil)
         alert.addAction(yesAction)
@@ -108,6 +120,12 @@ class SettingsTableViewController: UITableViewController {
                 self?.showError(message: error.localizedDescription)
             }
         }
+    }
+}
+
+extension SettingsTableViewController: SignInViewControllerDelegate {
+    func fetchData() {
+        checkAuth()
     }
 }
 

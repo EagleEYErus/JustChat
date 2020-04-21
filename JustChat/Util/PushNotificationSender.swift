@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PushNotificationSender {
+final class PushNotificationSender {
     func sendPushNotification(to token: String, title: String, body: String, senderId: String) {
         let urlString = "https://fcm.googleapis.com/fcm/send"
         guard let url = URL(string: urlString) else { return }
