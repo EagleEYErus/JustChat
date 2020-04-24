@@ -1,5 +1,5 @@
 //
-//  Extension+UIViewController.swift
+//  UIViewController+Extensions.swift
 //  JustChat
 //
 //  Created by Alexander Saprykin on 23.03.2020.

@@ -1,5 +1,5 @@
 //
-//  Extension+String.swift
+//  String+Extensions.swift
 //  JustChat
 //
 //  Created by Alexander Saprykin on 23.03.2020.

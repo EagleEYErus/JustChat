@@ -22,9 +22,9 @@
 		116210092427E357008D55F0 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116210082427E357008D55F0 /* Auth.storyboard */; };
 		1162100B2427ED88008D55F0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1162100A2427ED88008D55F0 /* SignInViewController.swift */; };
 		1162100F242806AF008D55F0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1162100E242806AF008D55F0 /* SignUpViewController.swift */; };
-		116210112428133C008D55F0 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116210102428133C008D55F0 /* Extension+String.swift */; };
-		11621013242814FC008D55F0 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11621012242814FC008D55F0 /* Extension+UIButton.swift */; };
-		11621015242817D0008D55F0 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11621014242817D0008D55F0 /* Extension+UIViewController.swift */; };
+		116210112428133C008D55F0 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116210102428133C008D55F0 /* String+Extensions.swift */; };
+		11621013242814FC008D55F0 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11621012242814FC008D55F0 /* UIButton+Extensions.swift */; };
+		11621015242817D0008D55F0 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11621014242817D0008D55F0 /* UIViewController+Extensions.swift */; };
 		1176375E24290F2C006A66A1 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176375D24290F2C006A66A1 /* ContactsTableViewController.swift */; };
 		1176376224292620006A66A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176376124292620006A66A1 /* User.swift */; };
 		1176376424292C7F006A66A1 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1176376324292C7F006A66A1 /* ContactListViewModel.swift */; };
@@ -61,9 +61,9 @@
 		116210082427E357008D55F0 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		1162100A2427ED88008D55F0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		1162100E242806AF008D55F0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		116210102428133C008D55F0 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
-		11621012242814FC008D55F0 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
-		11621014242817D0008D55F0 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		116210102428133C008D55F0 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		11621012242814FC008D55F0 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		11621014242817D0008D55F0 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		1176375D24290F2C006A66A1 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		1176376124292620006A66A1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1176376324292C7F006A66A1 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
@@ -221,9 +221,9 @@
 		116210052427D547008D55F0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				116210102428133C008D55F0 /* Extension+String.swift */,
-				11621012242814FC008D55F0 /* Extension+UIButton.swift */,
-				11621014242817D0008D55F0 /* Extension+UIViewController.swift */,
+				116210102428133C008D55F0 /* String+Extensions.swift */,
+				11621012242814FC008D55F0 /* UIButton+Extensions.swift */,
+				11621014242817D0008D55F0 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -384,13 +384,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11621015242817D0008D55F0 /* Extension+UIViewController.swift in Sources */,
+				11621015242817D0008D55F0 /* UIViewController+Extensions.swift in Sources */,
 				1176376424292C7F006A66A1 /* ContactListViewModel.swift in Sources */,
 				1162100B2427ED88008D55F0 /* SignInViewController.swift in Sources */,
 				11DA5B88242D655500A8581E /* Sender.swift in Sources */,
 				111723F9242DAEE300F5C413 /* ChatListViewModel.swift in Sources */,
 				11DA5B84242D1BBD00A8581E /* Message.swift in Sources */,
-				116210112428133C008D55F0 /* Extension+String.swift in Sources */,
+				116210112428133C008D55F0 /* String+Extensions.swift in Sources */,
 				1176376D242972F0006A66A1 /* ContactTableViewCell.swift in Sources */,
 				11DA5B86242D33A800A8581E /* MessageListViewModel.swift in Sources */,
 				11F3DA0D242820E500A062A5 /* SignInViewModel.swift in Sources */,
@@ -399,7 +399,7 @@
 				1176375E24290F2C006A66A1 /* ContactsTableViewController.swift in Sources */,
 				11F3DA0B24281F2800A062A5 /* SignUpViewModel.swift in Sources */,
 				111723FB242DAF0C00F5C413 /* Chat.swift in Sources */,
-				11621013242814FC008D55F0 /* Extension+UIButton.swift in Sources */,
+				11621013242814FC008D55F0 /* UIButton+Extensions.swift in Sources */,
 				11620FEA2427D129008D55F0 /* AppDelegate.swift in Sources */,
 				11620FEC2427D129008D55F0 /* SceneDelegate.swift in Sources */,
 				118E69B324324E920072E003 /* PushNotificationSender.swift in Sources */,
