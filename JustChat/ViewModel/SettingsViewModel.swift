@@ -11,12 +11,12 @@ import Firebase
 final class SettingsViewModel {
     func updateUsername(by user: Firebase.User, username: String, completion: @escaping (Result<Void, Error>) -> Void) {
         let unknownError = NSError(domain: "Что-то пошло не так. Попробуйте еще раз.", code: -1, userInfo: nil)
-        Firestore.firestore().collection("users").whereField("id", isEqualTo: user.uid).getDocuments { (snapshot, error) in
+        Firestore.firestore().collection("users").document(user.uid).getDocument { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
                 return
             }
-            guard let document = snapshot?.documents.first else {
+            guard let document = snapshot else {
                 completion(.failure(unknownError))
                 return
             }
@@ -37,16 +37,16 @@ final class SettingsViewModel {
     
     func updateAvatar(by user: Firebase.User, image: UIImage, completion: @escaping (Result<Void, Error>) -> Void) {
         let unknownError = NSError(domain: "Что-то пошло не так. Попробуйте еще раз.", code: -1, userInfo: nil)
-        Firestore.firestore().collection("users").whereField("id", isEqualTo: user.uid).getDocuments { (snapshot, error) in
+        Firestore.firestore().collection("users").document(user.uid).getDocument { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
                 return
             }
-            guard let document = snapshot?.documents.first else {
+            guard let document = snapshot, let data = document.data() else {
                 completion(.failure(unknownError))
                 return
             }
-            guard let userDocument = User(dictionary: document.data()) else {
+            guard let userDocument = User(dictionary: data) else {
                 completion(.failure(unknownError))
                 return
             }

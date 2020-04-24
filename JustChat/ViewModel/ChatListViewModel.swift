@@ -17,7 +17,7 @@ final class ChatListViewModel {
     }
     
     private var listener: ListenerRegistration?
-        
+    
     private func fetchChats(userId: String, completion: @escaping (Result<Void, Error>) -> Void) {
         let unknownError = NSError(domain: "Ошибка загрузки данных. Попробуйте позже.", code: -1, userInfo: nil)
         Firestore.firestore().collection("chats").whereField("users", arrayContains: userId).getDocuments { [weak self] (snapshot, error) in
@@ -36,13 +36,13 @@ final class ChatListViewModel {
                 guard let userIds = document.data()["users"] as? [String] else { continue }
                 guard let recipientId = userIds.filter({ $0 != userId }).first else { continue }
                 dispatchGroup.enter()
-                Firestore.firestore().collection("users").whereField("id", isEqualTo: recipientId).addSnapshotListener { (userSnap, userError) in
+                Firestore.firestore().collection("users").document(recipientId).getDocument { (userSnap, userError) in
                     if let userError = userError {
                         err = userError
                         dispatchGroup.leave()
                         return
                     }
-                    guard let user = userSnap?.documents.compactMap({ User(dictionary: $0.data()) }).first else {
+                    guard let data = userSnap?.data(), let user = User(dictionary: data) else {
                         err = unknownError
                         dispatchGroup.leave()
                         return
