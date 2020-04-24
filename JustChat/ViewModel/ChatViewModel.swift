@@ -1,5 +1,5 @@
 //
-//  MessageListViewModel.swift
+//  ChatViewModel.swift
 //  JustChat
 //
 //  Created by Alexander Saprykin on 26.03.2020.
@@ -8,7 +8,7 @@
 
 import Firebase
 
-final class MessageListViewModel {
+final class ChatViewModel {
     
     var messages: [Message] = []
     

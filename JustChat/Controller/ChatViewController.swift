@@ -13,7 +13,7 @@ import InputBarAccessoryView
 
 class ChatViewController: MessagesViewController, UITextViewDelegate {
     
-    var viewModel: MessageListViewModel!
+    var viewModel: ChatViewModel!
     var currentUser: Firebase.User!
     var recipientUser: User!
     
@@ -25,7 +25,7 @@ class ChatViewController: MessagesViewController, UITextViewDelegate {
         
         delegating()
         setupLayout()
-        viewModel = MessageListViewModel(userIds: [currentUser.uid, recipientUser.id].sorted())
+        viewModel = ChatViewModel(userIds: [currentUser.uid, recipientUser.id].sorted())
         viewModel.observeMessages { [weak self] result in
             switch result {
             case .success:
