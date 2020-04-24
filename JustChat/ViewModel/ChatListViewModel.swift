@@ -10,7 +10,7 @@ import Firebase
 
 final class ChatListViewModel {
     
-    var chats: [Chat] = []
+    var chats: [ChatPreview] = []
     
     var numberOfRows: Int {
         return chats.count
@@ -29,7 +29,7 @@ final class ChatListViewModel {
                 completion(.failure(unknownError))
                 return
             }
-            var chats = [Chat]()
+            var chats = [ChatPreview]()
             let dispatchGroup = DispatchGroup()
             var err: Error?
             for document in documents {

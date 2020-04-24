@@ -12,7 +12,7 @@
 		111723F5242D781900F5C413 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111723F3242D781900F5C413 /* ChatTableViewCell.xib */; };
 		111723F7242D7A7E00F5C413 /* ChatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111723F6242D7A7E00F5C413 /* ChatsTableViewController.swift */; };
 		111723F9242DAEE300F5C413 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111723F8242DAEE300F5C413 /* ChatListViewModel.swift */; };
-		111723FB242DAF0C00F5C413 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111723FA242DAF0C00F5C413 /* Chat.swift */; };
+		111723FB242DAF0C00F5C413 /* ChatPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111723FA242DAF0C00F5C413 /* ChatPreview.swift */; };
 		11620FEA2427D129008D55F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11620FE92427D129008D55F0 /* AppDelegate.swift */; };
 		11620FEC2427D129008D55F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11620FEB2427D129008D55F0 /* SceneDelegate.swift */; };
 		11620FF12427D129008D55F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11620FEF2427D129008D55F0 /* Main.storyboard */; };
@@ -49,7 +49,7 @@
 		111723F3242D781900F5C413 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 		111723F6242D7A7E00F5C413 /* ChatsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewController.swift; sourceTree = "<group>"; };
 		111723F8242DAEE300F5C413 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
-		111723FA242DAF0C00F5C413 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		111723FA242DAF0C00F5C413 /* ChatPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPreview.swift; sourceTree = "<group>"; };
 		11620FE62427D129008D55F0 /* JustChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11620FE92427D129008D55F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11620FEB2427D129008D55F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 				1176376124292620006A66A1 /* User.swift */,
 				11DA5B83242D1BBD00A8581E /* Message.swift */,
 				11DA5B87242D655500A8581E /* Sender.swift */,
-				111723FA242DAF0C00F5C413 /* Chat.swift */,
+				111723FA242DAF0C00F5C413 /* ChatPreview.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -398,7 +398,7 @@
 				118283CA244D25DA00E3492E /* SettingsTableViewController.swift in Sources */,
 				1176375E24290F2C006A66A1 /* ContactsTableViewController.swift in Sources */,
 				11F3DA0B24281F2800A062A5 /* SignUpViewModel.swift in Sources */,
-				111723FB242DAF0C00F5C413 /* Chat.swift in Sources */,
+				111723FB242DAF0C00F5C413 /* ChatPreview.swift in Sources */,
 				11621013242814FC008D55F0 /* UIButton+Extensions.swift in Sources */,
 				11620FEA2427D129008D55F0 /* AppDelegate.swift in Sources */,
 				11620FEC2427D129008D55F0 /* SceneDelegate.swift in Sources */,

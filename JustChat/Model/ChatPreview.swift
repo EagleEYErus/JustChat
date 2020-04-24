@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alexander Saprykin. All rights reserved.
 //
 
-struct Chat {
+struct ChatPreview {
     var user: User
     var lastMessage: Message?
 }
