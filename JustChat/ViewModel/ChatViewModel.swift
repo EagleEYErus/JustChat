@@ -50,11 +50,22 @@ final class ChatViewModel {
                 completion(.failure(strongSelf.unknownError))
                 return
             }
-            doc.reference.collection("thread").addDocument(data: message.dictionary) { error in
-                if let error = error {
-                    completion(.failure(error))
-                } else {
-                    completion(.success(()))
+            let data: [String: Any] = [
+                "lastMessage": message.text,
+                "lastMessageTimestamp": message.created
+            ]
+            doc.reference.updateData(data) {
+                updateError in
+                if let updateError = updateError {
+                    completion(.failure(updateError))
+                    return
+                }
+                doc.reference.collection("thread").addDocument(data: message.dictionary) { error in
+                    if let error = error {
+                        completion(.failure(error))
+                    } else {
+                        completion(.success(()))
+                    }
                 }
             }
         }

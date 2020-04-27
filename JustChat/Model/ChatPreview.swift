@@ -6,7 +6,10 @@
 //  Copyright © 2020 Alexander Saprykin. All rights reserved.
 //
 
+import Firebase
+
 struct ChatPreview {
     var user: User
-    var lastMessage: Message?
+    var lastMessage: String?
+    var lastMessageTimestamp: Timestamp?
 }

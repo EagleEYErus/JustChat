@@ -29,48 +29,48 @@ final class ChatListViewModel {
                 completion(.failure(unknownError))
                 return
             }
-            var chats = [ChatPreview]()
-            let dispatchGroup = DispatchGroup()
-            var err: Error?
+            var recipientIds = [String]()
+            var lastMessages = [String: [String: Any]]()
             for document in documents {
                 guard let userIds = document.data()["users"] as? [String] else { continue }
                 guard let recipientId = userIds.filter({ $0 != userId }).first else { continue }
-                dispatchGroup.enter()
-                Firestore.firestore().collection("users").document(recipientId).getDocument { (userSnap, userError) in
-                    if let userError = userError {
-                        err = userError
-                        dispatchGroup.leave()
-                        return
-                    }
-                    guard let data = userSnap?.data(), let user = User(dictionary: data) else {
-                        err = unknownError
-                        dispatchGroup.leave()
-                        return
-                    }
-                    document.reference.collection("thread").order(by: "created").limit(toLast: 1).getDocuments { (messSnap, messError) in
-                        if let messError = messError {
-                            err = messError
-                            dispatchGroup.leave()
-                            return
-                        }
-                        guard let doc = messSnap?.documents.first else {
-                            chats.append(.init(user: user, lastMessage: nil))
-                            dispatchGroup.leave()
-                            return
-                        }
-                        let message = Message(dictionary: doc.data())
-                        chats.append(.init(user: user, lastMessage: message))
-                        dispatchGroup.leave()
-                    }
+                guard let lastMessage = document.data()["lastMessage"] as? String,
+                    let lastMessageTimestamp = document.data()["lastMessageTimestamp"] as? Timestamp else { continue }
+                lastMessages[recipientId] = [
+                    "text": lastMessage,
+                    "timestamp": lastMessageTimestamp
+                ]
+            }
+            if recipientIds.count == 0 {
+                completion(.success(()))
+                return
+            }
+            Firestore.firestore().collection("users").whereField("id", in: recipientIds).getDocuments { (userSnap, userError) in
+                if let userError = userError {
+                    completion(.failure(userError))
+                    return
                 }
-                dispatchGroup.notify(queue: .main) {
-                    guard err == nil else  {
+                guard let userDocuments = userSnap?.documents else {
+                    completion(.failure(unknownError))
+                    return
+                }
+                var chats = [ChatPreview]()
+                for document in userDocuments {
+                    guard let user = User(dictionary: document.data()) else {
                         completion(.failure(unknownError))
                         return
                     }
-                    self?.chats = chats
-                    completion(.success(()))
+                    var lastMessage: String?
+                    var lastMessageTimestamp: Timestamp?
+                    if let message = lastMessages[user.id]?["text"] as? String,
+                        let created = lastMessages[user.id]?["timestamp"] as? Timestamp {
+                        lastMessage = message
+                        lastMessageTimestamp = created
+                    }
+                    chats.append(.init(user: user, lastMessage: lastMessage, lastMessageTimestamp: lastMessageTimestamp))
                 }
+                self?.chats = chats
+                completion(.success(()))
             }
         }
     }

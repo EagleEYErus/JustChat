@@ -53,8 +53,8 @@ final class ChatsTableViewController: UITableViewController {
 
         let currentChat = viewModel.chats[indexPath.row]
         cell.nameLabel.text = currentChat.user.name
-        cell.messageLabel.text = currentChat.lastMessage?.text ?? "Сообщений нет"
-        if let created = currentChat.lastMessage?.created.dateValue() {
+        cell.messageLabel.text = currentChat.lastMessage ?? "Сообщений нет"
+        if let created = currentChat.lastMessageTimestamp?.dateValue() {
             let dateFormatter = DateFormatter()
             if abs(created.timeIntervalSinceNow) > 60 * 60 * 24 {
                 dateFormatter.dateFormat = "dd.MM"
