@@ -66,7 +66,7 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     private func isDataInputsVerified() -> Bool {
         guard let email = emailTextField.text else { return false }
-        return nameTextField.text?.count != 0 && passwordTextField.text?.count ?? 0 > 5 && email.isValidEmail && isAvatarSet
+        return nameTextField.text?.isValidUsername ?? false && passwordTextField.text?.count ?? 0 > 5 && email.isValidEmail && isAvatarSet
     }
     
     @objc private func textFieldDidChange() {
@@ -102,7 +102,7 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUpBittonAction(_ sender: UIButton) {
-        guard let name = nameTextField.text,
+        guard let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
             let email = emailTextField.text,
             let password = passwordTextField.text,
             let avararImage = avatarImageView.image else { return }

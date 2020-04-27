@@ -83,12 +83,12 @@ final class SettingsTableViewController: UITableViewController {
     }
     
     @objc private func textFieldDidChange() {
-        if usernameTextField.text?.count == 0 || usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == user.displayName {
-            saveBarButtonItem.isEnabled = false
-            saveBarButtonItem.title = ""
-        } else {
+        if usernameTextField.text?.isValidUsername ?? false && usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) != user.displayName {
             saveBarButtonItem.isEnabled = true
             saveBarButtonItem.title = "Сохранить"
+        } else {
+            saveBarButtonItem.isEnabled = false
+            saveBarButtonItem.title = ""
         }
     }
     
