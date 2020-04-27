@@ -34,6 +34,7 @@ final class ChatListViewModel {
             for document in documents {
                 guard let userIds = document.data()["users"] as? [String] else { continue }
                 guard let recipientId = userIds.filter({ $0 != userId }).first else { continue }
+                recipientIds.append(recipientId)
                 guard let lastMessage = document.data()["lastMessage"] as? String,
                     let lastMessageTimestamp = document.data()["lastMessageTimestamp"] as? Timestamp else { continue }
                 lastMessages[recipientId] = [
