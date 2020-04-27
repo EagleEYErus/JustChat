@@ -1,5 +1,5 @@
 //
-//  Chat.swift
+//  ChatPreview.swift
 //  JustChat
 //
 //  Created by Alexander Saprykin on 27.03.2020.
