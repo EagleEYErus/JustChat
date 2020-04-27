@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol SignInViewControllerDelegate: class {
-    func fetchData()
-}
-
 final class SignInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var inputsContainerView: UIView!
@@ -20,8 +16,6 @@ final class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     
     private let viewModel = SignInViewModel()
-    
-    weak var delegate: SignInViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,8 +85,7 @@ final class SignInViewController: UIViewController, UITextFieldDelegate {
             self?.signInButton.stopAnimating()
             switch result {
             case .success:
-                self?.delegate?.fetchData()
-                self?.dismiss(animated: true, completion: nil)
+                Switcher.updateRootViewController()
             case .failure(let error):
                 self?.showError(message: error.localizedDescription)
             }

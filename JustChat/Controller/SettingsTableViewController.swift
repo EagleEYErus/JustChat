@@ -35,12 +35,7 @@ final class SettingsTableViewController: UITableViewController {
             user = currentUser
             usernameTextField.text = user.displayName ?? ""
         } else {
-            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-            if let vc = storyboard.instantiateInitialViewController() as? SignInViewController {
-                vc.modalPresentationStyle = .fullScreen
-                vc.delegate = self
-                present(vc, animated: false, completion: nil)
-            }
+            Switcher.updateRootViewController()
         }
     }
     
@@ -79,12 +74,7 @@ final class SettingsTableViewController: UITableViewController {
         let alert = UIAlertController(title: "", message: "Вы уверены, что хотите выйти?", preferredStyle: .actionSheet)
         let yesAction = UIAlertAction(title: "Выйти", style: .destructive) { _ in
             try? Auth.auth().signOut()
-            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-            if let vc = storyboard.instantiateInitialViewController() as? SignInViewController {
-                vc.modalPresentationStyle = .fullScreen
-                vc.delegate = self
-                self.present(vc, animated: false, completion: nil)
-            }
+            Switcher.updateRootViewController()
         }
         let cancelAction = UIAlertAction(title: "Отменить", style: .cancel, handler: nil)
         alert.addAction(yesAction)
@@ -120,12 +110,6 @@ final class SettingsTableViewController: UITableViewController {
                 self?.showError(message: error.localizedDescription)
             }
         }
-    }
-}
-
-extension SettingsTableViewController: SignInViewControllerDelegate {
-    func fetchData() {
-        checkAuth()
     }
 }
 

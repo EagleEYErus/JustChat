@@ -34,12 +34,7 @@ final class ChatsTableViewController: UITableViewController {
                 }
             }
         } else {
-            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-            if let vc = storyboard.instantiateInitialViewController() as? SignInViewController {
-                vc.modalPresentationStyle = .fullScreen
-                vc.delegate = self
-                present(vc, animated: false, completion: nil)
-            }
+            Switcher.updateRootViewController()
         }
     }
     
@@ -81,11 +76,5 @@ final class ChatsTableViewController: UITableViewController {
         viewController.currentUser = currentUser
         viewController.recipientUser = viewModel.chats[indexPath.row].user
         navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-extension ChatsTableViewController: SignInViewControllerDelegate {
-    func fetchData() {
-        checkAuth()
     }
 }

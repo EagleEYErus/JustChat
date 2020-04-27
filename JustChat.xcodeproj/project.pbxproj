@@ -38,6 +38,7 @@
 		11DA5B84242D1BBD00A8581E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA5B83242D1BBD00A8581E /* Message.swift */; };
 		11DA5B86242D33A800A8581E /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA5B85242D33A800A8581E /* ChatViewModel.swift */; };
 		11DA5B88242D655500A8581E /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA5B87242D655500A8581E /* Sender.swift */; };
+		11E06C2D2456E0BE00E2B462 /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E06C2C2456E0BE00E2B462 /* Switcher.swift */; };
 		11F3DA0B24281F2800A062A5 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */; };
 		11F3DA0D242820E500A062A5 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3DA0C242820E500A062A5 /* SignInViewModel.swift */; };
 		5DF7B893F67CF7357FC0199C /* Pods_JustChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865C5D5EDFE33C543E87B6E8 /* Pods_JustChat.framework */; };
@@ -78,6 +79,7 @@
 		11DA5B83242D1BBD00A8581E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		11DA5B85242D33A800A8581E /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		11DA5B87242D655500A8581E /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
+		11E06C2C2456E0BE00E2B462 /* Switcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
 		11F3DA0A24281F2800A062A5 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		11F3DA0C242820E500A062A5 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		6BCB1EE7E419D02B8325CF6C /* Pods-JustChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustChat.release.xcconfig"; path = "Target Support Files/Pods-JustChat/Pods-JustChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			children = (
 				118E69B024324A3A0072E003 /* PushNotificationManager.swift */,
 				118E69B224324E920072E003 /* PushNotificationSender.swift */,
+				11E06C2C2456E0BE00E2B462 /* Switcher.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				118283CA244D25DA00E3492E /* SettingsTableViewController.swift in Sources */,
 				1176375E24290F2C006A66A1 /* ContactsTableViewController.swift in Sources */,
 				11F3DA0B24281F2800A062A5 /* SignUpViewModel.swift in Sources */,
+				11E06C2D2456E0BE00E2B462 /* Switcher.swift in Sources */,
 				111723FB242DAF0C00F5C413 /* ChatPreview.swift in Sources */,
 				11621013242814FC008D55F0 /* UIButton+Extensions.swift in Sources */,
 				11620FEA2427D129008D55F0 /* AppDelegate.swift in Sources */,

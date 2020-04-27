@@ -46,7 +46,7 @@ final class ContactsTableViewController: UITableViewController {
                 }
             }
         } else {
-            showAuth(animated: false)
+            Switcher.updateRootViewController()
         }
     }
 

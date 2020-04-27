@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,10 +18,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
-        if let tabBarController = window?.rootViewController as? UITabBarController {
-            tabBarController.selectedIndex = 1
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+        
+        var rootViewController : UIViewController?
+        
+        if Auth.auth().currentUser != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            rootViewController = storyboard.instantiateInitialViewController()
+            if let tabBarController = rootViewController as? UITabBarController {
+                tabBarController.selectedIndex = 1
+            }
+        } else {
+            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+            rootViewController = storyboard.instantiateInitialViewController()
         }
+        
+        window?.rootViewController = rootViewController
+        window?.makeKeyAndVisible()
         
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = UIColor(named: "backgroundView")
