@@ -101,7 +101,9 @@
                                             <constraint firstAttribute="height" constant="33" id="VFN-je-SRa"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Регистрация"/>
+                                        <state key="normal" title="Регистрация">
+                                            <color key="titleColor" name="buttonColor"/>
+                                        </state>
                                         <connections>
                                             <segue destination="bFz-HX-Bih" kind="presentation" modalPresentationStyle="fullScreen" id="mLl-iA-Jwv"/>
                                         </connections>
