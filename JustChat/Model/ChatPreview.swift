@@ -9,7 +9,7 @@
 import Firebase
 
 struct ChatPreview {
-    var user: User
-    var lastMessage: String?
-    var lastMessageTimestamp: Timestamp?
+    let user: User
+    let lastMessage: String?
+    let lastMessageTimestamp: Timestamp?
 }

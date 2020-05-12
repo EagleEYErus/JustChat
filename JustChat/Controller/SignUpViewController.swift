@@ -90,7 +90,7 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
        return false
     }
     
-    @objc func selectAvatarImageView() {
+    @objc private func selectAvatarImageView() {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true

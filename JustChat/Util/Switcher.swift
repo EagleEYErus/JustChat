@@ -9,7 +9,7 @@
 import UIKit.UIViewController
 import FirebaseAuth
 
-class Switcher {
+final class Switcher {
     static func updateRootViewController() {
         var rootViewController : UIViewController?
         

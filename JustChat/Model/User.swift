@@ -7,11 +7,11 @@
 //
 
 struct User {
-    var id: String
-    var fcmToken: String?
-    var name: String
-    var email: String
-    var avatarUrl: String
+    let id: String
+    let fcmToken: String?
+    let name: String
+    let email: String
+    let avatarUrl: String
 
     var dictionary: [String: Any] {
         return [

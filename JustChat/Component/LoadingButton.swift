@@ -10,8 +10,8 @@ import UIKit
 
 final class LoadingButton: UIButton {
     
-    var originalButtonText: String?
-    var activityIndicator: UIActivityIndicatorView!
+    private var originalButtonText: String?
+    private var activityIndicator: UIActivityIndicatorView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

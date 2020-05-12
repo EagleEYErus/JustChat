@@ -10,11 +10,11 @@ import Firebase
 import MessageKit
 
 struct Message {
-    var id: String
-    var text: String
-    var created: Timestamp
-    var senderId: String
-    var senderName: String
+    let id: String
+    let text: String
+    let created: Timestamp
+    let senderId: String
+    let senderName: String
     
     var dictionary: [String: Any] {
         return [

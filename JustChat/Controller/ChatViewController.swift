@@ -11,9 +11,9 @@ import Firebase
 import MessageKit
 import InputBarAccessoryView
 
-class ChatViewController: MessagesViewController, UITextViewDelegate {
+final class ChatViewController: MessagesViewController, UITextViewDelegate {
     
-    var viewModel: ChatViewModel!
+    private var viewModel: ChatViewModel!
     var currentUser: Firebase.User!
     var recipientUser: User!
     
@@ -86,7 +86,7 @@ class ChatViewController: MessagesViewController, UITextViewDelegate {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(textFieldStopEditing), userInfo: nil, repeats: false)
     }
     
-    @objc func textFieldStopEditing(sender: Timer) {
+    @objc private func textFieldStopEditing(sender: Timer) {
         viewModel.setIsTyping(userId: currentUser.uid, isTyping: false) { [weak self] result in
             switch result {
             case .success:
